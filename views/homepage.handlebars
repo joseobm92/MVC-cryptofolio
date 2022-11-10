@@ -1,4 +1,4 @@
-<!-- Loop over each object in the projects array -->
+{{!-- <!-- Loop over each object in the projects array -->
 {{#each projects as |project| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
@@ -21,4 +21,32 @@
     </p>
   </div>
 </div>
-{{/each}}
+{{/each}} --}}
+
+
+    <div class="container mt-5">
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Market Cap.</th>
+                </tr>
+            </thead>
+            {{#each cryptocurrencies as |cryptocurrency| }}
+            <tbody>
+                <tr>
+                    <th scope="row">{{rank}}</th>
+                    <td>Bitcoin (BTC) {{name}}{{symbol}} </td>
+                    <td>50,540.80 {{.price}}</td>
+                    <td>54325234643{{.marketcap}}</td>
+                </tr>
+                
+            </tbody>
+            {{/each}}
+        </table>
+    </div>
+
+    <script src="./js/homepage.js"></script>
+    
