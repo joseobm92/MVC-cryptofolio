@@ -2,20 +2,20 @@
     {
       "price": 56.27,
       "market_cap": 100,
-      "circulating_supply": 71610743,
+      "circulating_supply": 71610743.73,
      "max_supply": 84000000
     },
     {
       "price": 12.96,
-      "market_cap": 500,
-      "circulating_supply": 300299918,
+      "market_cap": 3892986032,
+      "circulating_supply": 300299918.25,
       "max_supply": 720000000
     },
     {
-      "price": 16451,
-      "market_cap": 400,
-      "circulating_supply": 238013 ,
-      "max_supply": 100
+      "price": 16451.32,
+      "market_cap": 315967167,
+      "circulating_supply": 238013.41,
+      "max_supply": 100000000
     },
     {
       "price": 3,
@@ -26,7 +26,7 @@
     {
       "price": 6,
       "market_cap": 953954130,
-      "circulating_supply": 491599970,
+      "circulating_supply": 4591599970.45,
       "max_supply": 1000000000
     }
   ]
