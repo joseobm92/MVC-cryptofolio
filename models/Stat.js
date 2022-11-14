@@ -12,19 +12,19 @@ Stat.init(
       autoIncrement: true,
     },
     price: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL,
         allowNull: false,
     },
     market_cap: {
-        type:DataTypes.INTEGER,
+        type:DataTypes.DECIMAL,
         allowNull: false
     },
     circulating_supply: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
       allowNull: false,
     },
     max_supply: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL,
         allowNull: false,
     },
   },
