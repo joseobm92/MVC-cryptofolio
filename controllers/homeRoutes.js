@@ -1,25 +1,25 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { Stat, User, Cryptocurrency, Watchlist } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
+    // Get all cryptocurrency and JOIN with stats
+    const cryptocurrencyData = await Cryptocurrency.findAll({
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: Stat,
+          attributes: ['price', 'market_cap', 'circulating_suppy', 'max_supply' ],
         },
       ],
     });
 
     // Serialize data so the template can read it
-    const projects = projectData.map((project) => project.get({ plain: true }));
+    const cryptocurrencies = cryptocurrencyData.map((cryptocurrency) => cryptocurrency.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      projects, 
+      cryptocurrencies, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -27,21 +27,21 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+router.get('/coin/:id', withAuth, async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    const cryptocurrencyData = await Cryptocurrency.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: Stat,
+          attributes: ['price', 'market_cap', 'circulating_suppy', 'max_supply' ],
         },
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    const cryptocurrency = cryptocurrencyData.get({ plain: true });
 
-    res.render('project', {
-      ...project,
+    res.render('project', { // maybe create a single-coin handlebar??? that will show alll stats ancc
+      ...cryptocurrency,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -67,6 +67,12 @@ router.get('/profile', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get('/signup', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  
+  res.render('signup');
 });
 
 router.get('/login', (req, res) => {

@@ -24,4 +24,8 @@ User.belongsToMany(Cryptocurrency, {
   foreignKey: 'user_id',
 });
 
+Stat.hasOne(Cryptocurrency, {
+  foreignKey: 'stat_id',
+} )
+
 module.exports = { User, Stat, Cryptocurrency, Watchlist };
