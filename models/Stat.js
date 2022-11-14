@@ -5,12 +5,7 @@ class Stat extends Model {}
 
 Stat.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
+   
     price: {
         type: DataTypes.INTEGER,
         allowNull: false,

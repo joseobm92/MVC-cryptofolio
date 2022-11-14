@@ -7,6 +7,8 @@
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Market Cap.</th>
+                    <th scope="col">circulating_supply</th>
+                    <th scope="col">max_supply</th>
                 </tr>
             </thead>
             {{#each cryptocurrencies as |cryptocurrency| }}
@@ -16,12 +18,11 @@
                     <td>{{cryptocurrency.name}} {{cryptocurrency.symbol}} </td>
                     <td> {{cryptocurrency.stat.price}}</td>
                     <td>{{cryptocurrency.stat.market_cap}}</td>
+                    <td>{{cryptocurrency.stat.circulating_supply}}</td>
+                    <td>{{cryptocurrency.stat.max_supply}}</td>
                 </tr>
                 
             </tbody>
             {{/each}}
         </table>
     </div>
-
-    
-    

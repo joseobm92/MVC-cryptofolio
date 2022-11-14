@@ -5,12 +5,6 @@ class Cryptocurrency extends Model {}
 
 Cryptocurrency.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
     rank: {
       type: DataTypes.INTEGER,
       allowNull: false,

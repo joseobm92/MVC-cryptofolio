@@ -1,47 +1,82 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { Stat, User, Cryptocurrency, Watchlist } = require('../models');
 const withAuth = require('../utils/auth');
+const axios = require('axios');
+
+let response = null;
+async function getCryptocurrency (resolve, reject)  {
+  try {
+    response = await axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?sort=cmc_rank', {
+      headers: {
+        'X-CMC_PRO_API_KEY': 'd0fafe5d-679a-4901-bebf-c7dcea6c596a',
+      },
+    });
+  } catch(ex) {
+    response = null;
+    // error
+    console.log(ex);
+    reject(ex);
+  }
+  if (response) {
+    // success
+   
+    const json = response.data;
+    
+    console.log(json);
+    // resolve(json);
+  }
+};
 
 router.get('/', async (req, res) => {
-  try {
-    // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+  try { 
+    let result = getCryptocurrency()
+    
+    
+    // Get all cryptocurrency and JOIN with stats
+    // const cryptocurrencyData = await Cryptocurrency.findAll({
+    //   include: [
+    //     {
+    //       model: Stat,
+    //       attributes: ['price', 'market_cap', 'circulating_suppy', 'max_supply' ],
+    //     },
+    //   ],
+    // });
 
-    // Serialize data so the template can read it
-    const projects = projectData.map((project) => project.get({ plain: true }));
+    // // Serialize cryptodata so the template can read it
+    // const cryptocurrencies = cryptocurrencyData.map((cryptocurrency) => cryptocurrency.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      projects, 
-      logged_in: req.session.logged_in 
-    });
+    // // Pass serialized data and session flag into template
+    // res.render('homepage', { 
+    //   cryptocurrencies, 
+    //   logged_in: req.session.logged_in 
+    // });
+    res.render('homepage', {
+      result
+    } )
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+router.get('/coin/:id', withAuth, async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    const cryptocurrencyData = await Cryptocurrency.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: Stat,
+          attributes: ['price', 'market_cap', 'circulating_suppy', 'max_supply' ],
         },
+        {
+          model: User,
+          attributes: [ 'username', 'id' ]
+        }
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    const cryptocurrency = cryptocurrencyData.get({ plain: true });
 
-    res.render('project', {
-      ...project,
+    res.render('single-coin', { // maybe create a single-coin handlebar??? that will show alll stats ancc
+      ...cryptocurrency,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -49,30 +84,36 @@ router.get('/project/:id', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
-    });
+// // Use withAuth middleware to prevent access to route
+// router.get('/profile', withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session ID
+//     const userData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['password'] },
+//       include: [{ model: Project }],
+//     });
 
-    const user = userData.get({ plain: true });
+//     const user = userData.get({ plain: true });
 
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+//     res.render('profile', {
+//       ...user,
+//       logged_in: true
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+router.get('/signup', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  
+  res.render('signup');
 });
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/watchlist');
     return;
   }
 
