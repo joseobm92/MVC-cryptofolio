@@ -26,12 +26,12 @@ router.post('/', async (req, res) => {
 });
 
 // delete crypto from user watchlist
-router.delete('/:id', async (req, res) => {
+router.delete('/:symbol', async (req, res) => {
     try {
       const cryptoData = await Cryptocurrency.destroy({
         where: {
-          id: req.params.id,
-          //user_id: req.session.user_id,
+          symbol: req.params.symbol,
+          user_id: req.session.user_id,
         },
       });
       if (!cryptoData) {

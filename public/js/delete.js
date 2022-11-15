@@ -1,15 +1,21 @@
 const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('post-id')) {
-      const id = event.target.getAttribute('post-id');
-      const response = await fetch(`/api/post/${id}`, {
+
+    console.log(event.target.classList[0]);
+
+      const symbol = event.target.classList[0];
+      const response = await fetch(`/api/watchlist/${symbol}`, {
         method: 'DELETE',
       });
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/watchlist');
       } else {
-        alert('Failed to delete post');
+        alert('Failed to delete cryptocurrency');
       }
-    }
-  };
-  document
-  .querySelector('#delete-btn').addEventListener('click', delButtonHandler);
+};
+
+
+
+  console.log(document.querySelectorAll('.delete-btn'));
+  document.querySelectorAll('.delete-btn').forEach(
+    btn => {btn.addEventListener('click', delButtonHandler)
+});
