@@ -16,6 +16,22 @@ Cryptocurrency.init(
     symbol: {
       type: DataTypes.STRING,
     },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    market_cap: {
+        type:DataTypes.BIGINT,
+        allowNull: false
+    },
+    circulating_supply: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
+    },
+    max_supply: {
+        type: DataTypes.BIGINT,
+        allowNull: false,
+    },
   },
   {
     sequelize,

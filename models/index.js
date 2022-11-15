@@ -1,6 +1,5 @@
 const User = require('./User');
 const Cryptocurrency = require('./Cryptocurrency');
-const Stat = require('./Stat');
 const Watchlist = require('./Watchlist');
 
 User.hasMany(Cryptocurrency, {
@@ -8,10 +7,6 @@ User.hasMany(Cryptocurrency, {
   onDelete: 'CASCADE'
 });
 
-Stat.belongsTo(Cryptocurrency, {
-  foreignKey: 'cryptocurrency_id',
-  onDelete: 'CASCADE',
-})
 
 Cryptocurrency.belongsToMany(User, { 
   through: Watchlist,
@@ -24,8 +19,5 @@ User.belongsToMany(Cryptocurrency, {
   foreignKey: 'user_id',
 });
 
-Stat.hasOne(Cryptocurrency, {
-  foreignKey: 'stat_id',
-} )
 
-module.exports = { User, Stat, Cryptocurrency, Watchlist };
+module.exports = { User, Cryptocurrency, Watchlist };

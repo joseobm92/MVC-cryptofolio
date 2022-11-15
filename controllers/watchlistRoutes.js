@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const Cryptocurrency = require('../models/Cryptocurrency');
-const Stat = require('../models/Stat');
 const withAuth = require('../utils/auth')
 const User = require('../models/User');
 
@@ -18,10 +17,6 @@ router.get('/', withAuth, async (req, res) => {
           model: User,
           attributes: ['username','id',],
         },
-        {
-            model: Stat,
-            attributes: ['price', 'market_cap', 'circulating_suppy', 'max_supply' ]
-        }
       ],
     });
 
