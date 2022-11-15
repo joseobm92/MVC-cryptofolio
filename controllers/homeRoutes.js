@@ -4,33 +4,32 @@ const withAuth = require('../utils/auth');
 const axios = require('axios');
 
 let response = null;
+
 async function getCryptocurrency (resolve, reject)  {
   try {
-    response = await axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?sort=cmc_rank', {
+    response = await axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?sort=cmc_rank&limit=10', {
       headers: {
         'X-CMC_PRO_API_KEY': 'd0fafe5d-679a-4901-bebf-c7dcea6c596a',
       },
     });
-  } catch(ex) {
+  } catch(err) {
     response = null;
     // error
-    console.log(ex);
-    reject(ex);
+    console.log(err);
+    reject(err);
   }
   if (response) {
     // success
-   
-    const json = response.data;
-    
-    console.log(json);
-    // resolve(json);
+    const data = response.data;
+    return data
   }
 };
 
 router.get('/', async (req, res) => {
   try { 
-    let result = getCryptocurrency()
-    
+    let result = await getCryptocurrency()
+    console.log('test')
+    console.log(result.data)
     
     // Get all cryptocurrency and JOIN with stats
     // const cryptocurrencyData = await Cryptocurrency.findAll({
@@ -50,9 +49,7 @@ router.get('/', async (req, res) => {
     //   cryptocurrencies, 
     //   logged_in: req.session.logged_in 
     // });
-    res.render('homepage', {
-      result
-    } )
+    res.render('homepage', { data: result.data })
   } catch (err) {
     res.status(500).json(err);
   }
