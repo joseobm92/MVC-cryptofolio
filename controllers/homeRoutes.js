@@ -5,9 +5,10 @@ const axios = require('axios');
 
 let response = null;
 
+// top 10 crypto name symbol price & MC
 async function getCryptocurrency (resolve, reject)  {
   try {
-    response = await axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?sort=cmc_rank&limit=10', {
+    response = await axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=10&sort_dir=desc', {
       headers: {
         'X-CMC_PRO_API_KEY': 'd0fafe5d-679a-4901-bebf-c7dcea6c596a',
       },
@@ -20,66 +21,65 @@ async function getCryptocurrency (resolve, reject)  {
   }
   if (response) {
     // success
+   
     const data = response.data;
+    
+    // model bulk create & pass data to it
     return data
   }
 };
+
+// get 1 cryptocurrency
+async function getOneCryptocurrency (id)  {
+  try {
+    response = await axios.get(`https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=${id}&limit=1&sort_dir=desc`, {
+      headers: {
+        'X-CMC_PRO_API_KEY': 'd0fafe5d-679a-4901-bebf-c7dcea6c596a',
+      },
+    });
+  } catch(err) {
+    response = null;
+    // error
+    console.log(err);
+  }
+  if (response) {
+    // success
+   
+    const data = response.data;
+    
+    // model bulk create & pass data to it
+    return data
+  }
+};
+
+
+
 
 router.get('/', async (req, res) => {
   try { 
     let result = await getCryptocurrency()
     console.log('test')
-    console.log(result.data)
     
-    // Get all cryptocurrency and JOIN with stats
-    // const cryptocurrencyData = await Cryptocurrency.findAll({
-    //   include: [
-    //     {
-    //       model: Stat,
-    //       attributes: ['price', 'market_cap', 'circulating_suppy', 'max_supply' ],
-    //     },
-    //   ],
-    // });
-
-    // // Serialize cryptodata so the template can read it
-    // const cryptocurrencies = cryptocurrencyData.map((cryptocurrency) => cryptocurrency.get({ plain: true }));
-
-    // // Pass serialized data and session flag into template
-    // res.render('homepage', { 
-    //   cryptocurrencies, 
-    //   logged_in: req.session.logged_in 
-    // });
     res.render('homepage', { data: result.data })
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/coin/:id', withAuth, async (req, res) => {
+router.get('/coin/:id', async (req, res) => {
+
   try {
-    const cryptocurrencyData = await Cryptocurrency.findByPk(req.params.id, {
-      include: [
-        {
-          model: Stat,
-          attributes: ['price', 'market_cap', 'circulating_suppy', 'max_supply' ],
-        },
-        {
-          model: User,
-          attributes: [ 'username', 'id' ]
-        }
-      ],
-    });
-
-    const cryptocurrency = cryptocurrencyData.get({ plain: true });
-
-    res.render('single-coin', { // maybe create a single-coin handlebar??? that will show alll stats ancc
-      ...cryptocurrency,
-      logged_in: req.session.logged_in
-    });
+    console.log(req.params.id);
+    let result = await getOneCryptocurrency(req.params.id)
+    console.log('test 1 crypto')
+    console.log(result.data[0]);
+    res.render('single-coin', { data: result.data[0] })
   } catch (err) {
     res.status(500).json(err);
   }
-});
+
+
+})
 
 // // Use withAuth middleware to prevent access to route
 // router.get('/profile', withAuth, async (req, res) => {

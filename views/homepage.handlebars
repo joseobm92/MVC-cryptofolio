@@ -12,10 +12,10 @@
             {{#each data as |cryptocurrency| }}
             <tbody>
                 <tr>
-                    <th scope="row">{{cryptocurrency.rank}}</th>
-                    <td>{{cryptocurrency.name}} {{cryptocurrency.symbol}} </td>
-                    <td> {{cryptocurrency.stat.price}}</td>
-                    <td>{{cryptocurrency.stat.market_cap}}</td>
+                    <th scope="row">{{cryptocurrency.cmc_rank}}</th>
+                    <td><a href="/coin/{{cryptocurrency.cmc_rank}}">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</a></td>
+                    <td> {{cryptocurrency.quote.USD.price}}</td>
+                    <td>{{cryptocurrency.quote.USD.market_cap}}</td>
                 </tr>
                 
             </tbody>
