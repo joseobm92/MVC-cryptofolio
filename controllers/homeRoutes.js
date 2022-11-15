@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Stat, User, Cryptocurrency, Watchlist } = require('../models');
+const { User, Cryptocurrency, Watchlist } = require('../models');
 const withAuth = require('../utils/auth');
 const axios = require('axios');
 
@@ -60,20 +60,22 @@ router.get('/', async (req, res) => {
     let result = await getCryptocurrency()
     console.log('test')
     
-    res.render('homepage', { data: result.data })
+    res.render('homepage', { data: result.data,
+    logged_in: req.session.logged_in })
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/coin/:id', async (req, res) => {
+router.get('/coin/:id', withAuth, async (req, res) => {
 
   try {
     console.log(req.params.id);
     let result = await getOneCryptocurrency(req.params.id)
     console.log('test 1 crypto')
     console.log(result.data[0]);
-    res.render('single-coin', { data: result.data[0] })
+    res.render('single-coin', { data: result.data[0],
+      logged_in: req.session.logged_in })
   } catch (err) {
     res.status(500).json(err);
   }
