@@ -1,13 +1,13 @@
 <div class="card">
   <div class="card-header">
-    {{name}} {{symbol}}
+    {{data.name}} ({{data.symbol}})
   </div>
   <div class="card-body">
-    <h5 class="card-title">{{name}}{{rank}}</h5>
-    <p class="card-text">{{cryptocurrency.stat.price}}</p>
-    <p class="card-text">{{cryptocurrency.stat.market_cap}}</p>
-    <p class="card-text">{{cryptocurrency.stat.circulating_supply}}</p>
-    <p class="card-text">{{cryptocurrency.stat.max_supply}}</p>
+    <h5 class="card-title">{{data.name}} Rank: {{data.cmc_rank}}</h5>
+    <p class="card-text"> Price:{{data.quote.USD.price}}</p>
+    <p class="card-text">MarketCap:{{data.quote.USD.market_cap}}</p>
+    <p class="card-text">Circulating Supply:{{data.circulating_supply}}</p>
+    <p class="card-text">Total Supply:{{data.total_supply}}</p>
     <button href="/watchlist" type="submit" class="btn btn-info">Add to your Watchlist</button>
   </div>
 </div>
