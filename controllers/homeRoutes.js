@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Cryptocurrency, Watchlist } = require('../models');
+const { User, Cryptocurrency } = require('../models');
 const withAuth = require('../utils/auth');
 const axios = require('axios');
 

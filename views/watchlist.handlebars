@@ -9,6 +9,7 @@
                     <th scope="col">Market Cap.</th>
                     <th scope="col">circulating_supply</th>
                     <th scope="col">max_supply</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             {{#each cryptocurrencies as |cryptocurrency| }}
@@ -20,9 +21,12 @@
                     <td>{{cryptocurrency.market_cap}}</td>
                     <td>{{cryptocurrency.circulating_supply}}</td>
                     <td>{{cryptocurrency.max_supply}}</td>
+                    <td> <button class="btn-danger rounded" id="delete-btn">Delete</button></td>
                 </tr>
                 
             </tbody>
             {{/each}}
         </table>
     </div>
+
+    <script src="/js/delete.js"></script>
