@@ -8,17 +8,15 @@ const User = require('../models/User');
 router.get('/', withAuth, async (req, res) => {
   try {
     // Get all POST and JOIN with user data
+    console.log("TESTING HERE!!!")
+    console.log(req.session.user_id);
     const cryptocurrencyData = await Cryptocurrency.findAll({
         where: {
             user_id: req.session.user_id 
-        },
-      include: [
-        {
-          model: User,
-          attributes: ['username','id',],
-        },
-      ],
+        }
     });
+
+    console.log(cryptocurrencyData);
 
     // Serialize data so the template can read it
     const cryptocurrencies = cryptocurrencyData.map((cryptocurrency) => cryptocurrency.get({ plain: true }));
@@ -31,6 +29,7 @@ router.get('/', withAuth, async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
+    console.log(err);
   }
 });
 
