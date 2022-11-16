@@ -1,15 +1,19 @@
-<div class="card">
+<div class="card custom-card">
   <div class="card-header">
-    {{data.name}} <span id="crypto-symbol" data-symbol = {{data.symbol}}>({{data.symbol}})</span>
-    <span id="crypto-cmc" data-rank = {{data.cmc_rank}}>Rank #{{data.cmc_rank}}</span> 
+    {{data.name}} <span id="crypto-symbol" data-symbol={{data.symbol}}>({{data.symbol}})</span>
+    <span id="crypto-cmc" data-rank={{data.cmc_rank}}>Rank #{{data.cmc_rank}}</span>
   </div>
   <div class="card-body">
-    <h5 class="card-title" id="crypto-name" data-name = {{data.name}}>{{data.name}}</h5>
-    <p class="card-text" id="crypto-price" data-price = {{data.quote.USD.price}}> Price: $ {{toPrecision data.quote.USD.price 7}} </p>
-    <p class="card-text" id="crypto-mc" data-mc = {{data.quote.USD.market_cap}}>Market Cap: $ {{addCommas (toPrecision data.quote.USD.market_cap 12)}} </p>
-    <p class="card-text" id="crypto-circ-supply" data-cs = {{data.circulating_supply}}>Circulating Supply: {{ data.circulating_supply}}</p>
-    <p class="card-text" id="crypto-total-supply" data-ts = {{data.total_supply}}>Total Supply: {{data.total_supply}}</p>
-    <button href="/watchlist" type="submit" class="btn btn-info" id="watchlist-btn">Add to your Watchlist</button>
+    <h5 class="card-title" id="crypto-name" data-name={{data.name}}>{{data.name}}</h5>
+    <p class="card-text" id="crypto-price" data-price={{data.quote.USD.price}}> Price: $ {{toPrecision
+      data.quote.USD.price 7}} </p>
+    <p class="card-text" id="crypto-mc" data-mc={{data.quote.USD.market_cap}}>Market Cap: $ {{addCommas (toPrecision
+      data.quote.USD.market_cap 12)}} </p>
+    <p class="card-text" id="crypto-circ-supply" data-cs={{data.circulating_supply}}>Circulating Supply: {{
+      data.circulating_supply}}</p>
+    <p class="card-text" id="crypto-total-supply" data-ts={{data.total_supply}}>Total Supply: {{data.total_supply}}</p>
+    <button href="/watchlist" type="submit" class="btn custom-btn" id="watchlist-btn">Add to Favorites <i
+        class="fa-solid fa-star"></i></button>
   </div>
 </div>
 

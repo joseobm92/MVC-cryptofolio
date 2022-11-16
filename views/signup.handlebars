@@ -1,19 +1,27 @@
+<div class="section text-center mb-3">
+    <h2>Create Account</h2>
+</div>
 <div class="container">
-    <div class="section">
-        <h2>Create your Account</h2>
+
+    <div class="row justify-content-center">
+
+        <form class="signup-form">
+            <div class="form-group col-sm">
+                <label for="username">Username</label>
+                <input type="username" class="form-control" id="usernameInput" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your username with anyone
+                    else.</small>
+            </div>
+            <div class="form-group col-sm">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="passwordInput">
+            </div>
+            <div class="col-sm">
+                <button type="submit" class="btn custom-btn">Sign up</button>
+            </div>
+
+        </form>
     </div>
-    <form class="signup-form">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type = "username" class="form-control" id="usernameInput" aria-describedby="emailHelp">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your username with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="passwordInput">
-        </div>
-        <button type="submit" class="btn btn-info">Sign up</button>
-    </form>
 </div>
 
 

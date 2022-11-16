@@ -1,12 +1,12 @@
 <h1 class="custom-header">Top 10 Exchanges</h1>
-<table class="table custom-tbl mt-4">
+<table class="table table-borderless custom-tbl mt-4 ">
     <thead>
         <tr>
             <th scope="col">Name</th>
             <th scope="col">Official Website</th>
-            <th scope="col">Trust Score</th>
+            <th scope="col" class="text-center">Trust Score</th>
             <th scope="col">24hr Volume (btc)</th>
-            <th scope="col">Est. Year</th>
+            <th scope="col" class="text-center">Est. Year</th>
         </tr>
     </thead>
     {{#each data as |exchange| }}
@@ -15,9 +15,9 @@
             <th scope="row"><a href="{{exchange.url}}" target="_blank"><img class="img-icon" src="{{exchange.image}}"
                         alt="">{{exchange.name}}</a></th>
             <td> <a href="{{exchange.url}}" target="_blank">{{exchange.url}}</a></td>
-            <td>{{exchange.trust_score_rank}}</td>
+            <td class="text-center">{{exchange.trust_score_rank}}</td>
             <td> {{exchange.trade_volume_24h_btc}}</td>
-            <td>{{exchange.year_established}}</td>
+            <td class="text-center">{{exchange.year_established}}</td>
         </tr>
 
     </tbody>

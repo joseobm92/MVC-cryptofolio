@@ -1,5 +1,5 @@
 <h1 class="custom-header">Top 100 Cryptocurrencies by Market Cap.</h1>
-<table class="table custom-tbl mt-4">
+<table class="table table-borderless custom-tbl w-150 mt-4">
     <thead>
         <tr>
             <th scope="col">Rank</th>
@@ -20,12 +20,12 @@
             <td><a href="/coin/{{cryptocurrency.market_cap_rank}}"><img class="img-icon" src="{{cryptocurrency.image}}"
                         alt="">{{cryptocurrency.name}}
                     ({{cryptocurrency.symbol}})</a></td>
-            <td> {{cryptocurrency.current_price}}</td>
-            <td>{{cryptocurrency.market_cap}}</td>
+            <td>$ {{cryptocurrency.current_price}}</td>
+            <td>$ {{cryptocurrency.market_cap}}</td>
             <td> {{cryptocurrency.circulating_supply}}</td>
-            <td>{{cryptocurrency.high_24h}}</td>
-            <td> {{cryptocurrency.low_24h}}</td>
-            <td>{{cryptocurrency.price_change_percentage_24h}}</td>
+            <td>$ {{cryptocurrency.high_24h}}</td>
+            <td>$ {{cryptocurrency.low_24h}}</td>
+            <td>{{cryptocurrency.price_change_percentage_24h}} %</td>
         </tr>
 
     </tbody>

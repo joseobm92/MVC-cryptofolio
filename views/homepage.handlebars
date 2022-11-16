@@ -1,4 +1,4 @@
-<table class="table custom-tbl mt-4">
+<table class="table table-borderless table-hover w-120 mt-4">
     <thead>
         <tr>
             <th scope="col">Rank (#)</th>
@@ -13,8 +13,8 @@
             <th scope="row">{{cryptocurrency.cmc_rank}}</th>
             <td><a href="/coin/{{cryptocurrency.cmc_rank}}">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</a>
             </td>
-            <td> {{ toPrecision cryptocurrency.quote.USD.price 7}}</td>
-            <td>{{addCommas (toPrecision cryptocurrency.quote.USD.market_cap 12)}}</td>
+            <td>$ {{ toPrecision cryptocurrency.quote.USD.price 7}}</td>
+            <td>$ {{addCommas (toPrecision cryptocurrency.quote.USD.market_cap 12)}}</td>
         </tr>
 
     </tbody>

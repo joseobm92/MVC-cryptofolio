@@ -1,25 +1,42 @@
 
 
 * {
-  background-color: black;
-  color: white;
+  color: black;
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
 
 body {
-  background-color: black;
+  min-height: 100vh;
+  background-color: #8BC6EC;
+  background-image: linear-gradient(156deg, #8BC6EC 0%, #77e19a 100%);
 }
 
+a { 
+  color: inherit; 
+}
 
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+footer {
+    margin-top: auto;
+    bottom: 0;
+}
+
+#search-btn {
+  border-color: white;
+  color: white;
 }
 
 .custom-tbl {
-  background: white;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   border-radius: 25px;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.custom-card {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  border-radius: 25px;
+  background-color: transparent;
 }
 
 .img-icon {
@@ -33,6 +50,39 @@ header, .project:not(:last-child) {
   font-size: 2rem;
 }
 
-footer{
-  background-color: black;
+.custom-btn {
+  border-color: white;
+  color: white;
+}
+
+.sign-up-text {
+  color: white;
+}
+
+.dropdown-menu {
+  background-color: #8BC6EC;
+  background-image: linear-gradient(156deg, #8BC6EC 0%, #85eea8 100%);
+  z-index: 1;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.sign-up-text:hover {
+  color: black;
+
+}
+
+#search-btn:hover {
+  border-color: white;
+  background-color: white;
+  color: black;
+}
+
+.custom-btn:hover {
+  border-color: white;
+  background-color: white;
+  color: black;
 }
