@@ -28,6 +28,7 @@ router.post('/', async (req, res) => {
 // delete crypto from user watchlist
 router.delete('/:symbol', async (req, res) => {
     try {
+      console.log(req.params);
       const cryptoData = await Cryptocurrency.destroy({
         where: {
           symbol: req.params.symbol,

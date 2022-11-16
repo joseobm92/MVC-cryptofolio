@@ -1,16 +1,17 @@
-<div class="card">
+<div class="card custom-card">
   <div class="card-header">
-    {{name}} <span id="crypto-symbol" data-symbol = {{symbol}}>({{symbol}})</span>
-    <span id="crypto-cmc" data-rank = {{rank}}>Rank # {{rank}}</span> 
+    {{name}} <span id="crypto-symbol" data-symbol={{symbol}}>({{symbol}})</span>
+    <span id="crypto-cmc" data-rank={{rank}}>Rank # {{rank}}</span>
   </div>
   <div class="card-body">
-    <h5 class="card-title" id="crypto-name" data-name = {{name}}>{{name}}</h5>
-    <p class="card-text" id="crypto-price" data-price = {{current_price}}> Price: $ {{current_price}}</p>
-    <p class="card-text" id="crypto-mc" data-mc = {{market_cap}}>MarketCap: $ {{market_cap}}</p>
-    <p class="card-text" id="crypto-circ-supply" data-cs = {{current_supply}}>Circulating Supply: {{current_supply}}</p>
-    <p class="card-text" id="crypto-total-supply" data-ts = {{total_supply}}>Total Supply: {{total_supply}}</p>
-    <p class="card-text" id="crypto-max-supply" data-ms = {{max_supply}}>Max Supply: {{ max_supply}}</p>
-    <button href="/watchlist" type="submit" class="btn btn-info" id="watchlist-btn">Add to your Watchlist</button>
+    <h5 class="card-title" id="crypto-name" data-name={{name}}>{{name}}</h5>
+    <p class="card-text" id="crypto-price" data-price={{current_price}}> Price: $ {{current_price}}</p>
+    <p class="card-text" id="crypto-mc" data-mc={{market_cap}}>MarketCap: $ {{market_cap}}</p>
+    <p class="card-text" id="crypto-circ-supply" data-cs={{current_supply}}>Circulating Supply: {{current_supply}}</p>
+    <p class="card-text" id="crypto-total-supply" data-ts={{total_supply}}>Total Supply: {{total_supply}}</p>
+    <p class="card-text" id="crypto-max-supply" data-ms={{max_supply}}>Max Supply: {{ max_supply}}</p>
+    <button href="/watchlist" type="submit" class="btn custom-btn" id="watchlist-btn">Add to Favorites <i
+        class="fa-solid fa-star"></i></button>
   </div>
 </div>
 
