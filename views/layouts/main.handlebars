@@ -9,37 +9,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 
-    <title>Document</title>
+    <title>Cryptofolio</title>
 </head>
 <body>
-    
-    <div class="jumbotron jumbotron-fluid bg-info">
+<div class ="bg-dark">
+
+    {{!-- <div class="jumbotron jumbotron-fluid bg-info">
         <div class="container">
           <h1 class="display-4">Cryptofolio</h1>
           <p class="lead">Your preferred cryptcurrency watch list and your one source on everything crypto. </p>
         </div>
-      </div>
+      </div>  --}}
 
-      <div class="container bg-white">
+
+  <nav class="navbar navbar-light bg-dark">
+  <div class="container-fluid"> 
+    <a class="navbar-brand" href="#">
+      <img src="/css/Assets/cryptologo.png" alt="" width="300" height="300" class="d-inline-block align-text-top">
+    </a>
+  </div>
+</nav>
+
+
+      <div class="container">
         <nav class="nav justify-content-between">
           <div class="form-inline">
-            <a class="nav-link active" href="/">Home</a>
-            <a class="nav-link" href="/watchlist">Watchfolio</a>
+            <a class="nav-link active" href="/"><i class="fa-solid fa-house"></i></a>
+            <a class="nav-link" href="/watchlist"> my watchlist </i></a>
             {{#if logged_in}}
-            <a class="nav-link" href="/" id="logout">logout</a>
+            <a class="nav-link" href="/" id="logout">logout <i class="fa-regular fa-rectangle-xmark"></i></a>
             {{else}}
             <a class="nav-link" href="/login">login</a>
             {{/if}}
           </div>
             <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" id="crypto-input" type="search" placeholder="Bitcoin" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
+              <button class="btn btn-outline-light my-2 my-sm-0" id="search-btn" type="submit">Search</button>
             </form>
         </nav>
         {{{ body }}}
     </div>
 
-
+</div>
 </body>
 
 
