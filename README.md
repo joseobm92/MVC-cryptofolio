@@ -13,7 +13,15 @@ Looing to step into the world of cryptocurrencies?
 ## User Story
 
 ## Functionality
+With Cryptofolio you will be able to complete tasks including:
 
+* View the current top 10 Cryptocurrencies on the market along with their price, market cap, circulating supply, etc.
+
+* Search for any specific currency and view their price, market cap, circulating supply, etc.
+
+* Create a profile to be able to login and log out. 
+
+* Create a personal watchfolio of any cryptocurrencies you want to keep track of.
 
 ## Demo of Application
 
