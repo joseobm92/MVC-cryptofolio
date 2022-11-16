@@ -95,7 +95,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get single crypto
+// get single crypto without search bar
 router.get('/coin/:id', withAuth, async (req, res) => {
 
   try {

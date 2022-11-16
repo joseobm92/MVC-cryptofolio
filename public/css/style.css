@@ -2,7 +2,7 @@ header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
-.no-button {
+/* .no-button {
   background: none;
   border: none;
   padding: 0;
@@ -21,4 +21,11 @@ header, .project:not(:last-child) {
   color: #056605;
   font-weight: bold;
   margin-left: -5px;
+} */
+
+.custom-tbl {
+  background: white;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  border-radius: 25px;
 }
+
