@@ -1,27 +1,22 @@
+<table class="table custom-tbl mt-4">
+    <thead>
+        <tr>
+            <th scope="col">Rank (#)</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Market Cap.</th>
+        </tr>
+    </thead>
+    {{#each data as |cryptocurrency| }}
+    <tbody>
+        <tr>
+            <th scope="row">{{cryptocurrency.cmc_rank}}</th>
+            <td><a href="/coin/{{cryptocurrency.cmc_rank}}">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</a>
+            </td>
+            <td> {{ toPrecision cryptocurrency.quote.USD.price 7}}</td>
+            <td>{{addCommas (toPrecision cryptocurrency.quote.USD.market_cap 12)}}</td>
+        </tr>
 
-    <div class="container mt-5 custom-tbl">
-        <table class="table ">
-            <thead>
-                <tr>
-                    <th scope="col">Rank</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Market Cap.</th>
-                </tr>
-            </thead>
-            {{#each data as |cryptocurrency| }}
-            <tbody>
-                <tr>
-                    <th scope="row">{{cryptocurrency.cmc_rank}}</th>
-                    <td><a href="/coin/{{cryptocurrency.cmc_rank}}">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</a></td>
-                    <td> {{ toPrecision  cryptocurrency.quote.USD.price 7}}</td>
-                    <td>{{addCommas (toPrecision cryptocurrency.quote.USD.market_cap 12)}}</td>
-                </tr>
-                
-            </tbody>
-            {{/each}}
-        </table>
-    </div>
-
-    
-    
+    </tbody>
+    {{/each}}
+</table>

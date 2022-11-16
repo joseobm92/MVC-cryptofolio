@@ -1,26 +1,25 @@
-<div class="container mt-5 custom-tbl">
-    <table class="table ">
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Official Website</th>
-                <th scope="col">Trust Score</th>
-                <th scope="col">24hr Volume (btc)</th>
-                <th scope="col">Est. Year</th>
-            </tr>
-        </thead>
-        {{#each data as |exchange| }}
-        <tbody>
-            <tr>
-                <th scope="row"><a href="{{exchange.url}}" target="_blank"><img style="max-height: 50px;"
-                            src="{{exchange.image}}" alt="">{{exchange.name}}</a></th>
-                <td> <a href="{{exchange.url}}" target="_blank">{{exchange.url}}</a></td>
-                <td>{{exchange.trust_score_rank}}</td>
-                <td> {{exchange.trade_volume_24h_btc}}</td>
-                <td>{{exchange.year_established}}</td>
-            </tr>
+<h1 class="custom-header">Top 10 Exchanges</h1>
+<table class="table custom-tbl mt-4">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Official Website</th>
+            <th scope="col">Trust Score</th>
+            <th scope="col">24hr Volume (btc)</th>
+            <th scope="col">Est. Year</th>
+        </tr>
+    </thead>
+    {{#each data as |exchange| }}
+    <tbody>
+        <tr>
+            <th scope="row"><a href="{{exchange.url}}" target="_blank"><img class="img-icon" src="{{exchange.image}}"
+                        alt="">{{exchange.name}}</a></th>
+            <td> <a href="{{exchange.url}}" target="_blank">{{exchange.url}}</a></td>
+            <td>{{exchange.trust_score_rank}}</td>
+            <td> {{exchange.trade_volume_24h_btc}}</td>
+            <td>{{exchange.year_established}}</td>
+        </tr>
 
-        </tbody>
-        {{/each}}
-    </table>
-</div>
+    </tbody>
+    {{/each}}
+</table>
