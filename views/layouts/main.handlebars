@@ -17,7 +17,8 @@
       </div>
 
       <div class="container bg-white">
-        <nav class="nav justify-content-center">
+        <nav class="nav justify-content-between">
+          <div class="form-inline">
             <a class="nav-link active" href="/">Home</a>
             <a class="nav-link" href="/watchlist">Watchfolio</a>
             {{#if logged_in}}
@@ -25,6 +26,11 @@
             {{else}}
             <a class="nav-link" href="/login">login</a>
             {{/if}}
+          </div>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" id="crypto-input" type="search" placeholder="Bitcoin" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
+            </form>
         </nav>
         {{{ body }}}
     </div>
@@ -35,4 +41,5 @@
 
 
 <script src="/js/logout.js"></script>
+<script src="/js/search.js"></script>
 </html>
