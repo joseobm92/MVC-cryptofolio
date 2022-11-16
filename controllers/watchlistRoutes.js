@@ -15,14 +15,15 @@ router.get('/', withAuth, async (req, res) => {
     });
 
     console.log(cryptocurrencyData);
-
+    
     // Serialize data so the template can read it
     const cryptocurrencies = cryptocurrencyData.map((cryptocurrency) => cryptocurrency.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('watchlist', {
       cryptocurrencies,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      user_name: req.session.user_username
     });
   } catch (err) {
     res.status(500).json(err);

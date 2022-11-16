@@ -1,32 +1,32 @@
+<h1> {{user_name}} Favorites</h1>
 
-    <div class="container mt-5">
-        <table class="table custom-tbl">
-            <thead>
-                <tr>
-                    <th scope="col">Rank(#) </th>
-                    <th scope="col">Name </th>
-                    <th scope="col">Price($) </th>
-                    <th scope="col">Market Cap($) </th>
-                    <th scope="col">Circulating Supply </th>
-                    <th scope="col">Max Supply </th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            {{#each cryptocurrencies as |cryptocurrency| }}
-            <tbody>
-                <tr>
-                    <th scope="row">{{cryptocurrency.rank}}</th>
-                    <td><a href="/coin/{{cryptocurrency.rank}}">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</a></td>
-                    <td> {{cryptocurrency.price}}</td>
-                    <td>{{cryptocurrency.market_cap}}</td>
-                    <td>{{cryptocurrency.circulating_supply}}</td>
-                    <td>{{cryptocurrency.max_supply}}</td>
-                    <td> <button class="{{cryptocurrency.symbol}} btn-danger rounded delete-btn">Delete</button></td>
-                </tr>
-                
-            </tbody>
-            {{/each}}
-        </table>
-    </div>
+<table class="table custom-tbl mt-4">
+    <thead>
+        <tr>
+            <th scope="col">Rank(#) </th>
+            <th scope="col">Name </th>
+            <th scope="col">Price($) </th>
+            <th scope="col">Market Cap($) </th>
+            <th scope="col">Circulating Supply </th>
+            <th scope="col">Max Supply </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    {{#each cryptocurrencies as |cryptocurrency| }}
+    <tbody>
+        <tr>
+            <th scope="row">{{cryptocurrency.rank}}</th>
+            <td><a href="/coin/{{cryptocurrency.rank}}">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</a></td>
+            <td> {{cryptocurrency.price}}</td>
+            <td>{{cryptocurrency.market_cap}}</td>
+            <td>{{cryptocurrency.circulating_supply}}</td>
+            <td>{{cryptocurrency.max_supply}}</td>
+            <td> <button class="{{cryptocurrency.symbol}} btn-danger rounded delete-btn">Delete</button></td>
+        </tr>
 
-    <script src="/js/delete.js"></script>
+    </tbody>
+    {{/each}}
+</table>
+
+
+<script src="/js/delete.js"></script>

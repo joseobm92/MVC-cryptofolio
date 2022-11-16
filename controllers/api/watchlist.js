@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
         market_cap: req.body.cryptoMc,
         circulating_supply: req.body.cryptoCircSupply, 
         max_supply: req.body.cryptoTotalSupply,
-        user_id: req.session.user_id
+        user_id: req.session.user_id,
     });
         
         res.status(200).json({message: "good!"})

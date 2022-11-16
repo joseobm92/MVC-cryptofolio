@@ -1,34 +1,33 @@
-<div class="container mt-5 custom-tbl">
-    <table class="table ">
-        <thead>
-            <tr>
-                <th scope="col">Rank</th>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Market Cap.</th>
-                <th scope="col">Circulating Supply</th>
-                <th scope="col">24hr High</th>
-                <th scope="col">24hr Low</th>
-                <th scope="col">24hr Price Change (%)</th>
+<h1 class="custom-header">Top 100 Cryptocurrencies by Volume Traded</h1>
+<table class="table custom-tbl mt-4">
+    <thead>
+        <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Market Cap.</th>
+            <th scope="col">Circulating Supply</th>
+            <th scope="col">24hr High</th>
+            <th scope="col">24hr Low</th>
+            <th scope="col">24hr Price Change (%)</th>
 
-            </tr>
-        </thead>
-        {{#each data as |cryptocurrency| }}
-        <tbody>
-            <tr>
-                <th scope="row">{{cryptocurrency.market_cap_rank}}</th>
-                <td><a href="/coin/{{cryptocurrency.market_cap_rank}}"><img style="max-height: 50px;"
-                            src="{{cryptocurrency.image}}" alt="">{{cryptocurrency.name}}
-                        ({{cryptocurrency.symbol}})</a></td>
-                <td> {{cryptocurrency.current_price}}</td>
-                <td>{{cryptocurrency.market_cap}}</td>
-                <td> {{cryptocurrency.circulating_supply}}</td>
-                <td>{{cryptocurrency.high_24h}}</td>
-                <td> {{cryptocurrency.low_24h}}</td>
-                <td>{{cryptocurrency.price_change_percentage_24h}}</td>
-            </tr>
+        </tr>
+    </thead>
+    {{#each data as |cryptocurrency| }}
+    <tbody>
+        <tr>
+            <th scope="row">{{cryptocurrency.market_cap_rank}}</th>
+            <td><a href="/coin/{{cryptocurrency.market_cap_rank}}"><img class="img-icon" src="{{cryptocurrency.image}}"
+                        alt="">{{cryptocurrency.name}}
+                    ({{cryptocurrency.symbol}})</a></td>
+            <td> {{cryptocurrency.current_price}}</td>
+            <td>{{cryptocurrency.market_cap}}</td>
+            <td> {{cryptocurrency.circulating_supply}}</td>
+            <td>{{cryptocurrency.high_24h}}</td>
+            <td> {{cryptocurrency.low_24h}}</td>
+            <td>{{cryptocurrency.price_change_percentage_24h}}</td>
+        </tr>
 
-        </tbody>
-        {{/each}}
-    </table>
-</div>
+    </tbody>
+    {{/each}}
+</table>
