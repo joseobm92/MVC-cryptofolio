@@ -12,8 +12,7 @@
     <title>Cryptofolio</title>
 </head>
 <body>
-<div class ="bg-dark">
-
+<div class = "background">
     {{!-- <div class="jumbotron jumbotron-fluid bg-info">
         <div class="container">
           <h1 class="display-4">Cryptofolio</h1>
@@ -22,7 +21,7 @@
       </div>  --}}
 
 
-  <nav class="navbar navbar-light bg-dark">
+  <nav class="navbar">
   <div class="container-fluid"> 
     <a class="navbar-brand" href="#">
       <img src="/css/Assets/cryptologo.png" alt="" width="300" height="300" class="d-inline-block align-text-top">
@@ -35,11 +34,11 @@
         <nav class="nav justify-content-between">
           <div class="form-inline">
             <a class="nav-link active" href="/"><i class="fa-solid fa-house"></i></a>
-            <a class="nav-link" href="/watchlist"> my watchlist </i></a>
+            <a class="nav-link" href="/watchlist"><i class="fa-regular fa-star"></i></a>
             {{#if logged_in}}
-            <a class="nav-link" href="/" id="logout">logout <i class="fa-regular fa-rectangle-xmark"></i></a>
+            <a class="nav-link" href="/" id="logout"><i class="fa-solid fa-user-xmark"></i></a>
             {{else}}
-            <a class="nav-link" href="/login">login</a>
+            <a class="nav-link" href="/login"><i class="fa-solid fa-circle-user"></i></a>
             {{/if}}
           </div>
             <form class="form-inline my-2 my-lg-0">
@@ -52,6 +51,20 @@
 
 </div>
 </body>
+
+<footer>
+        <div class="container">
+        <nav class="nav justify-content-between">
+          <div class="form-inline">
+            <a class="nav-link active" href="/"><i class="fa-solid fa-house"></i></a>
+            <a class="nav-link" href="/watchlist"> my watchlist <i class="fa-regular fa-star"></i></a>
+            {{#if logged_in}}
+            <a class="nav-link" href="/" id="logout">logout</a>
+            {{else}}
+            <a class="nav-link" href="/login">login<i class="fa-solid fa-circle-user"></i></a>
+            {{/if}}
+          </div>
+</footer>
 
 
 
