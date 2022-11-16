@@ -17,10 +17,10 @@
                 <tr>
                     <th scope="row">{{cryptocurrency.rank}}</th>
                     <td><a href="/coin/{{cryptocurrency.rank}}">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</a></td>
-                    <td> {{toPrecision cryptocurrency.price 7}}</td>
-                    <td>{{addCommas (toPrecision cryptocurrency.market_cap 12)}}</td>
-                    <td>{{addCommas (toPrecision cryptocurrency.circulating_supply 12)}}</td>
-                    <td>{{addCommas (toPrecision cryptocurrency.max_supply 12)}}</td>
+                    <td> {{cryptocurrency.price}}</td>
+                    <td>{{cryptocurrency.market_cap}}</td>
+                    <td>{{cryptocurrency.circulating_supply}}</td>
+                    <td>{{cryptocurrency.max_supply}}</td>
                     <td> <button class="{{cryptocurrency.symbol}} btn-danger rounded delete-btn">Delete</button></td>
                 </tr>
                 
