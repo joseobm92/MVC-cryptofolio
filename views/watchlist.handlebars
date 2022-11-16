@@ -1,14 +1,14 @@
 
     <div class="container mt-5">
-        <table class="table ">
+        <table class="table custom-tbl">
             <thead>
                 <tr>
-                    <th scope="col">Rank</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Market Cap.</th>
-                    <th scope="col">circulating_supply</th>
-                    <th scope="col">max_supply</th>
+                    <th scope="col">Rank(#) </th>
+                    <th scope="col">Name </th>
+                    <th scope="col">Price($) </th>
+                    <th scope="col">Market Cap($) </th>
+                    <th scope="col">Circulating Supply </th>
+                    <th scope="col">Max Supply </th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -16,11 +16,11 @@
             <tbody>
                 <tr>
                     <th scope="row">{{cryptocurrency.rank}}</th>
-                    <td>{{cryptocurrency.name}} ({{cryptocurrency.symbol}}) </td>
-                    <td> {{cryptocurrency.price}}</td>
-                    <td>{{cryptocurrency.market_cap}}</td>
-                    <td>{{cryptocurrency.circulating_supply}}</td>
-                    <td>{{cryptocurrency.max_supply}}</td>
+                    <td><a href="/coin/{{cryptocurrency.rank}}">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</a></td>
+                    <td> {{toPrecision cryptocurrency.price 7}}</td>
+                    <td>{{addCommas (toPrecision cryptocurrency.market_cap 12)}}</td>
+                    <td>{{addCommas (toPrecision cryptocurrency.circulating_supply 12)}}</td>
+                    <td>{{addCommas (toPrecision cryptocurrency.max_supply 12)}}</td>
                     <td> <button class="{{cryptocurrency.symbol}} btn-danger rounded delete-btn">Delete</button></td>
                 </tr>
                 
