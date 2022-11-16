@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { User, Cryptocurrency, Cryptolist } = require('../models');
 const withAuth = require('../utils/auth');
 const axios = require('axios');
+const dotenv = require('dotenv').config();
+
 
 let response = null;
 
@@ -10,7 +12,7 @@ async function getCryptocurrency (resolve, reject)  {
   try {
     response = await axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=10&sort_dir=desc', {
       headers: {
-        'X-CMC_PRO_API_KEY': 'd0fafe5d-679a-4901-bebf-c7dcea6c596a',
+        'X-CMC_PRO_API_KEY': process.env.API_KEY,
       },
     });
   } catch(err) {
@@ -34,7 +36,7 @@ async function getOneCryptocurrency (id)  {
   try {
     response = await axios.get(`https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=${id}&limit=1&sort_dir=desc`, {
       headers: {
-        'X-CMC_PRO_API_KEY': 'd0fafe5d-679a-4901-bebf-c7dcea6c596a',
+        'X-CMC_PRO_API_KEY': process.env.API_KEY,
       },
     });
   } catch(err) {
@@ -81,6 +83,127 @@ async function getCoinGecko (name)  {
   }
 };
 
+
+
+
+// get top 100 cryptocurrency sorted by marketcap (COINGECKO)
+async function getByMarketCap ()  {
+  try {
+    response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false`);
+  } catch(err) {
+    response = null;
+    // error
+    console.log(err);
+  }
+  if (response) {
+    // success
+   
+    console.log("COINGECKO MARKET CAP RESPONSE");
+
+    const data = response.data;
+    
+    // model bulk create & pass data to it
+    return data
+  }
+};
+
+// get top 100 cryptocurrency sorted by volume traded (COINGECKO)
+async function getByVolume ()  {
+  try {
+    response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=volume_desc&per_page=100&page=1&sparkline=false
+    `);
+  } catch(err) {
+    response = null;
+    // error
+    console.log(err);
+  }
+  if (response) {
+    // success
+   
+    console.log("COINGECKO VOLUME RESPONSE");
+
+    const data = response.data;
+    
+    // model bulk create & pass data to it
+    return data
+  }
+};
+
+
+// route to get & render marketcap sorted data
+router.get('/marketcap', async (req, res) => {
+try {
+  let result = await getByMarketCap();
+  //console.log(result);
+  
+  res.render('market-cap', {
+    data: result,
+    logged_in: req.session.logged_in,
+  });
+} catch (err) {
+  res.status(500).json(err);
+  console.log(err);
+}
+});
+
+// route to get & render volume sorted data
+router.get('/volume', async (req, res) => {
+  try {
+    let result = await getByVolume();
+    //console.log(result);
+    
+    res.render('volume', {
+      data: result,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
+  });
+
+
+
+  
+// get top 10 Exchanges
+async function getExchanges()  {
+  try {
+    response = await axios.get(`https://api.coingecko.com/api/v3/exchanges?per_page=10&page=1`);
+  } catch(err) {
+    response = null;
+    // error
+    console.log(err);
+  }
+  if (response) {
+    // success
+   
+    console.log("COINGECKO EXCHANGE RESPONSE");
+
+    const data = response.data;
+
+    console.log(data);
+    
+    // model bulk create & pass data to it
+    return data
+  }
+};
+
+
+// route to get & render EXCHANGES 
+router.get('/exchanges', async (req, res) => {
+try {
+  let result = await getExchanges();
+  //console.log(result);
+  
+  res.render('exchanges', {
+    data: result,
+    logged_in: req.session.logged_in,
+  });
+} catch (err) {
+  res.status(500).json(err);
+  console.log(err);
+}
+});
 
 
 router.get('/', async (req, res) => {

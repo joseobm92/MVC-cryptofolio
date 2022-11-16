@@ -17,7 +17,7 @@ Cryptocurrency.init(
       type: DataTypes.STRING,
     },
     price: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(8,6),
       allowNull: false,
     },
     market_cap: {
