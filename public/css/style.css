@@ -2,6 +2,13 @@
   background-color: black;
   color: white;
   font-family: 'Montserrat', sans-serif;
-  
+  box-sizing: border-box;
 }
 
+body {
+  background-color: black;
+}
+
+footer{
+  background-color: black;
+}
