@@ -11,7 +11,7 @@ Looing to step into the world of cryptocurrencies?
 * Cryptofolio is an app designed to help you find, keep track of, and learn about different cryptocurrencies on the market.
 
 ## User Story
-The world is moving further and further into this technolical and as a result cryptocurrencies are also on the rise. We wanted to create an application that would allow someone to be able to learn about and keep track of the ever-growing market of Crypto!
+The world is moving further and further into this technolical and as a result cryptocurrencies are also on the rise. We wanted to create an application that would allow someone to be able to learn about and keep track of the ever-growing market of Crypto thus enabling them to make strategic investments.
 
 ## Functionality
 With Cryptofolio you will be able to complete tasks including:
@@ -28,7 +28,21 @@ With Cryptofolio you will be able to complete tasks including:
 
 ## Links
 
+Link for Repository: https://github.com/joseobm92/MVC-cryptofolio
+
 ## Technologies
+
+* Node.js
+
+* Express.js
+
+* Handlebars.js
+
+* NPM
+
+* Axios
+
+* MySQL & Sequelize ORM
 
 ## Future Devolopment
 
