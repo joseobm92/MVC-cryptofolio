@@ -16,7 +16,8 @@
     <tbody>
         <tr>
             <th scope="row">{{cryptocurrency.rank}}</th>
-            <td><a href="/coin/{{cryptocurrency.rank}}">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</a></td>
+            <td><a href="/search/{{cryptocurrency.slug}}"> <img class="img-icon" src="{{cryptocurrency.img_url}}"
+                        alt="">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</a></td>
             <td>$ {{cryptocurrency.price}}</td>
             <td>$ {{cryptocurrency.market_cap}}</td>
             <td>{{cryptocurrency.circulating_supply}}</td>

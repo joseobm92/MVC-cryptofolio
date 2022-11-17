@@ -1,17 +1,56 @@
 <div class="card custom-card">
-  <div class="card-header">
+  <div class="card-header" id="crypto-slug" data-slug={{slug}}>
     {{name}} <span id="crypto-symbol" data-symbol={{symbol}}>({{symbol}})</span>
-    <span id="crypto-cmc" data-rank={{rank}}>Rank # {{rank}}</span>
+    <span id="crypto-rank" data-rank={{rank}}>Rank # {{rank}}</span>
+  </div>
+  <div class="card-body container">
+    <div class="row">
+      <div class="col">
+        <h5 class="card-title" id="crypto-name" data-name={{name}}> <img class="img-icon" src="{{image}}"
+            alt="{{symbol}} icon"> {{name}}</h5>
+        <p class="card-text" id="crypto-price" data-price={{current_price}}> Current Price: $ {{current_price}}</p>
+        <p class="card-text" id="crypto-mc" data-mc={{market_cap}}>MarketCap: $ {{market_cap}}</p>
+        <p class="card-text" id="crypto-circ-supply" data-cs={{current_supply}}>Circulating Supply: {{current_supply}}
+        </p>
+        <p class="card-text" id="crypto-total-supply" data-ts={{total_supply}}>Total Supply: {{total_supply}}</p>
+        <p class="card-text" id="crypto-max-supply" data-ms={{max_supply}}>Max Supply: {{ max_supply}}</p>
+        <button href="/watchlist" type="submit" class="btn custom-btn" id="watchlist-btn">Add to Favorites <i
+            class="fa-solid fa-star"></i></button>
+      </div>
+
+      <div class="col">
+        <h5 class="mb-3">Historical Data</h5>
+        <p class="card-text"> Launch Date: {{genesis_date}}</p>
+        <p class="card-text"> All Time High Price: $ {{addCommas ath_price}}</p>
+        <p class="card-text"> ATH Date: {{ath_date}}</p>
+        <p class="card-text"> All Time Low Price: $ {{atl_price}}</p>
+        <p class="card-text"> ATL Date: {{atl_date}}</p>
+      </div>
+
+      <div class="col">
+        <h5 class="mb-3">Learn More</h5>
+        <h6>Official Website <i class="bi bi-globe"></i></h6>
+        <p class="card-text" id="off-website"><a href="{{website}}" target="_blank">{{website}}</a></p>
+        {{#if subreddit}}
+        <h6>Sub Reddit <i class="bi bi-reddit"></i></h6>
+        <p class="card-text" id="subreddit"><a href="{{subreddit}}" target="_blank">{{subreddit}}</a></p>
+        {{/if}}
+        {{#if twitter}}
+        <h6>Twitter <i class="bi bi-twitter"></i></h6>
+        <p class="card-text" id="twitter"><a href="https://twitter.com/{{twitter}}"
+            target="_blank">https://twitter.com/{{twitter}}</a></p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card custom-card mt-3">
+  <div class="card-header">
+    <p class="card-text mt-3"> About {{name}} <img class="img-icon" src="{{image}}" alt="{{symbol}} icon"></p>
   </div>
   <div class="card-body">
-    <h5 class="card-title" id="crypto-name" data-name={{name}}>{{name}}</h5>
-    <p class="card-text" id="crypto-price" data-price={{current_price}}> Price: $ {{current_price}}</p>
-    <p class="card-text" id="crypto-mc" data-mc={{market_cap}}>MarketCap: $ {{market_cap}}</p>
-    <p class="card-text" id="crypto-circ-supply" data-cs={{current_supply}}>Circulating Supply: {{current_supply}}</p>
-    <p class="card-text" id="crypto-total-supply" data-ts={{total_supply}}>Total Supply: {{total_supply}}</p>
-    <p class="card-text" id="crypto-max-supply" data-ms={{max_supply}}>Max Supply: {{ max_supply}}</p>
-    <button href="/watchlist" type="submit" class="btn custom-btn" id="watchlist-btn">Add to Favorites <i
-        class="fa-solid fa-star"></i></button>
+    <p class="card-text"> {{{ description}}}</p>
   </div>
 </div>
 

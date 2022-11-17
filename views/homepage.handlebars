@@ -1,3 +1,5 @@
+<h1>Top 10 Cryptocurrencies by Market Cap.</h1>
+
 <table class="table table-borderless table-hover w-120 mt-4">
     <thead>
         <tr>
@@ -10,11 +12,13 @@
     {{#each data as |cryptocurrency| }}
     <tbody>
         <tr>
-            <th scope="row">{{cryptocurrency.cmc_rank}}</th>
-            <td><a href="/coin/{{cryptocurrency.cmc_rank}}">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</a>
+            <th scope="row">{{cryptocurrency.market_cap_rank}}</th>
+            <td><a href="/search/{{cryptocurrency.id}}"> <img class="img-icon" src="{{cryptocurrency.image}}"
+                        alt="">{{cryptocurrency.name}}
+                    ({{cryptocurrency.symbol}})</a>
             </td>
-            <td>$ {{ toPrecision cryptocurrency.quote.USD.price 7}}</td>
-            <td>$ {{addCommas (toPrecision cryptocurrency.quote.USD.market_cap 12)}}</td>
+            <td>$ {{ toPrecision cryptocurrency.current_price 7}}</td>
+            <td>$ {{addCommas (toPrecision cryptocurrency.market_cap 12)}}</td>
         </tr>
 
     </tbody>

@@ -16,6 +16,9 @@ Cryptocurrency.init(
     symbol: {
       type: DataTypes.STRING,
     },
+    slug: {
+      type: DataTypes.STRING,
+    },
     price: {
       type: DataTypes.DECIMAL(20,6),
       allowNull: false,
@@ -30,8 +33,10 @@ Cryptocurrency.init(
     },
     max_supply: {
         type: DataTypes.BIGINT,
-        allowNull: false,
     },
+    img_url: {
+      type: DataTypes.STRING,
+    }
   },
   {
     sequelize,
