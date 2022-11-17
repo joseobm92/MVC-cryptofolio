@@ -52,7 +52,9 @@ Link for Repository: https://github.com/joseobm92/MVC-cryptofolio
 
 * A forum for users to discuss their favorite currencies
 
-* Giving users the ability to buy and sell cryptocurrencies
+* Send price alerts on your favorites
+
+* Consolidate all of your investments in one place
 
 ## Roles and Credits
 Back-End Developers
