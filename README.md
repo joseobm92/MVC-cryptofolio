@@ -76,13 +76,13 @@ As a user:
 
   ## Contribution
 
-    [Youssef Ojei](https://github.com/youssefojeil) - Full Stack Developer
+[Youssef Ojeil](https://github.com/youssefojeil) - Full Stack Developer
 
-    Jose Barreto
+Jose Barreto
 
-    Elizabeth Decarlo
+Elizabeth Decarlo
     
-    Alexander Brutus
+Alexander Brutus
   
 
 
