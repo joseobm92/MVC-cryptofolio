@@ -46,6 +46,14 @@ Link for Repository: https://github.com/joseobm92/MVC-cryptofolio
 
 ## Future Devolopment
 
+* Using Chart.js to create graphs with our data
+
+* Giving users the ability to make notes on their watch page
+
+* A forum for users to discuss their favorite currencies
+
+* Giving users the ability to buy and sell cryptocurrencies
+
 ## Roles and Credits
 Back-End Developers
 * Youssef Ojeil
