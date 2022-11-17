@@ -26,7 +26,7 @@
 
     As a User: 
 
-1. https://radiant-sands-53481.herokuapp.com/
+1. https://vast-gorge-15693.herokuapp.com/
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
     
@@ -64,9 +64,9 @@ Must have [DBeaver](https://dbeaver.io/) downloaded!
 
 As a user:
 
-```sh 
-    https://radiant-sands-53481.herokuapp.com/
-```
+
+[Deployed Website](https://vast-gorge-15693.herokuapp.com/)
+
 
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
