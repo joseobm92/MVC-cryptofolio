@@ -1,68 +1,104 @@
 
-# Cryptofolio
+<p id="readme-top"></p>
 
-Your preffered cryptocurrency watchlist and #1 source on everything crypto!
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  # MVC - Cryptofolio
+  
+ 
+  * [Installation](#installation)
+  * [Description](#description)
+  * [Usage](#usage)
+  * [Contribution](#contribution)
+  * [Instructions](#instructions)
+  * [License](#license)
+      
+  ## Installation
 
-## About
-Looing to step into the world of cryptocurrencies?
+    As a programmer:
 
-* Cryptofolio is the App for you!
+  1. Git clone.
+  2. install node.js.
+  3. Command line (npm install) to install neccesary modules located on package.json.
+  4. Create your own environmental variables on a file called .env to connect with your database.
+  5. Use a database tool like Dbeaver to create database using schema.sql and use Command Line ( npm run seed) to seed the database.
+  6. Command Line (node server.js) to get your pc to listen to port 3001.
+  7. Use an API platform like postman to check on different routes and application functionality.
 
-* Cryptofolio is an app designed to help you find, keep track of, and learn about different cryptocurrencies on the market.
+    As a User: 
 
-## User Story
-The world is moving further and further into this technolical and as a result cryptocurrencies are also on the rise. We wanted to create an application that would allow someone to be able to learn about and keep track of the ever-growing market of Crypto thus enabling them to make strategic investments.
+1. https://quiet-mountain-31080.herokuapp.com/
 
-## Functionality
-With Cryptofolio you will be able to complete tasks including:
+ <p align="right">(<a href="#readme-top">back to top</a>)</p>
+    
 
-* View the current top 10 Cryptocurrencies on the market along with their price, market cap, circulating supply, etc.
+  ## Description
 
-* Search for any specific currency and view their price, market cap, circulating supply, etc.
+  This application is a blog focus on tech created using node.js, express.js, mySQL, sequelize, express handlebars, express session, dotenv, bcrypt, connect-session-sequelize among other tools; to provide the user with an application that allows the user to signup, login and logout of their account, once they are logged in they can create and edit posts, and they can create comments on posts. Eveyrhing was done following the MVC programming paradigm.
 
-* Create a profile to be able to login and log out. 
+   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-* Create a personal watchfolio of any cryptocurrencies you want to keep track of.
+  ## Usage
 
-## Demo of Application
+  Must have [Node.js](https://nodejs.org/en/) downloaded!
 
-## Links
+Must have [mySQL](https://dev.mysql.com/downloads/mysql/) downloaded! 
 
-Link for Repository: https://github.com/joseobm92/MVC-cryptofolio
+Must have [DBeaver](https://dbeaver.io/) downloaded! 
 
-## Technologies
+  As a programmer:
+```sh 
+    Install neccesary modules using the Command line -> npm install
+``` 
+```sh 
+    Create environmental variables to connect to your database securely ->  (.env)
+``` 
+```sh 
+    Create the database on mySQL using schema.sql, then use Command line -> npm run seed
+``` 
+```sh 
+    Command line to start application -> node server.js
+```
+```sh 
+    Use an API platform like postman to test functionality of the routes and models
+```
 
-* Node.js
+As a user:
 
-* Express.js
-
-* Handlebars.js
-
-* NPM
-
-* Axios
-
-* MySQL & Sequelize ORM
-
-## Future Devolopment
-
-* Using Chart.js to create graphs with our data
-
-* Giving users the ability to make notes on their watch page
-
-* A forum for users to discuss their favorite currencies
-
-* Send price alerts on your favorites
-
-* Consolidate all of your investments in one place
-
-## Roles and Credits
-Back-End Developers
-* Youssef Ojeil
-* Jose Barreto
-
-Front-End Developers
-* Elizabeth DeCarlo
-* Alex Brutus
+```sh 
+    https://quiet-mountain-31080.herokuapp.com/
+```
 
 
+ <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+  ## Contribution
+
+     Youseff Ojeil
+
+    Jose Barreto
+
+    Elizabeth Decarlo
+    
+    Alexander Brutus
+  
+
+
+  ## Demo
+
+
+ <p align="right">(<a href="#readme-top">back to top</a>)</p>
+ 
+  ## License
+  This project is licensed under the [The MIT License](https://opensource.org/licenses/MIT)
+   <p align="right">(<a href="#readme-top">back to top</a>)</p>
+      
+  ## Questions
+  * Checkout my [GitHub profile](https://github.com/joseobm92)
+  
+  * Any additional questions or feed back, feel free to [send an email](mailto:joseobm92@gmail.com). 
+   <p align="right">(<a href="#readme-top">back to top</a>)</p>
+  ## License
+  Copyright (c) [ joseobm92](https://github.com/joseobm92), . All rights reserved.
+   <p align="right">(<a href="#readme-top">back to top</a>)</p>
+  
+  Licensed under the The MIT License license.
