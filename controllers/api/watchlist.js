@@ -12,10 +12,12 @@ router.post('/', async (req, res) => {
         rank: req.body.cryptoRank, 
         name: req.body.cryptoName,
         symbol: req.body.cryptoSymbol,
+        slug: req.body.cryptoSlug,
         price: req.body.cryptoPrice, 
         market_cap: req.body.cryptoMc,
         circulating_supply: req.body.cryptoCircSupply, 
         max_supply: req.body.cryptoTotalSupply,
+        img_url: req.body.cryptoImage,
         user_id: req.session.user_id,
     });
         

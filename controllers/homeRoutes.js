@@ -1,157 +1,56 @@
 const router = require('express').Router();
-const { User, Cryptocurrency, Cryptolist } = require('../models');
+const {
+  Cryptolist
+} = require('../models');
 const withAuth = require('../utils/auth');
-const axios = require('axios');
+const {
+  getCryptocurrency,
+  getCoinGecko,
+  getByMarketCap,
+  getByVolume,
+  getExchanges
+} = require('../utils/axios-fetch');
 const dotenv = require('dotenv').config();
 
 
-let response = null;
-
-// top 10 crypto name symbol price & MC
-async function getCryptocurrency (resolve, reject)  {
+// home route
+router.get('/', async (req, res) => {
   try {
-    response = await axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=10&sort_dir=desc', {
-      headers: {
-        'X-CMC_PRO_API_KEY': process.env.API_KEY,
-      },
-    });
-  } catch(err) {
-    response = null;
-    // error
-    console.log(err);
-    reject(err);
-  }
-  if (response) {
-    // success
-   
-    const data = response.data;
-    
-    // model bulk create & pass data to it
-    return data
-  }
-};
+    let result = await getCryptocurrency()
+    console.log('test')
+    console.log(result);
 
-// get 1 cryptocurrency using ID
-async function getOneCryptocurrency (id)  {
-  try {
-    response = await axios.get(`https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=${id}&limit=1&sort_dir=desc`, {
-      headers: {
-        'X-CMC_PRO_API_KEY': process.env.API_KEY,
-      },
-    });
-  } catch(err) {
-    response = null;
-    // error
-    console.log(err);
+    res.render('homepage', {
+      data: result,
+      logged_in: req.session.logged_in
+    })
+  } catch (err) {
+    res.status(500).json(err);
   }
-  if (response) {
-    // success
-   
-    const data = response.data;
-    
-    // model bulk create & pass data to it
-    return data
-  }
-};
-
-// get 1 cryptocurrency using name from using coincecko api
-async function getCoinGecko (name)  {
-  try {
-    response = await axios.get(`https://api.coingecko.com/api/v3/coins/${name}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`);
-  } catch(err) {
-    response = null;
-    // error
-    console.log(err);
-  }
-  if (response) {
-    // success
-   
-    console.log("COINGECKO RESPONSE")
-    console.log(response.data.name);
-    console.log(response.data.symbol);
-    console.log(response.data.market_data.current_price.usd);
-    console.log(response.data.market_data.market_cap.usd);
-    console.log(response.data.market_data.market_cap_rank);
-    console.log(response.data.market_data.total_supply);
-    console.log(response.data.market_data.max_supply);
-    console.log(response.data.market_data.circulating_supply);
-    
-    const data = response.data;
-    
-    // model bulk create & pass data to it
-    return data
-  }
-};
-
-
-
-
-// get top 100 cryptocurrency sorted by marketcap (COINGECKO)
-async function getByMarketCap ()  {
-  try {
-    response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false`);
-  } catch(err) {
-    response = null;
-    // error
-    console.log(err);
-  }
-  if (response) {
-    // success
-   
-    console.log("COINGECKO MARKET CAP RESPONSE");
-
-    const data = response.data;
-    
-    // model bulk create & pass data to it
-    return data
-  }
-};
-
-// get top 100 cryptocurrency sorted by volume traded (COINGECKO)
-async function getByVolume ()  {
-  try {
-    response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=volume_desc&per_page=100&page=1&sparkline=false
-    `);
-  } catch(err) {
-    response = null;
-    // error
-    console.log(err);
-  }
-  if (response) {
-    // success
-   
-    console.log("COINGECKO VOLUME RESPONSE");
-
-    const data = response.data;
-    
-    // model bulk create & pass data to it
-    return data
-  }
-};
-
+});
 
 // route to get & render marketcap sorted data
-router.get('/marketcap', async (req, res) => {
-try {
-  let result = await getByMarketCap();
-  //console.log(result);
-  
-  res.render('market-cap', {
-    data: result,
-    logged_in: req.session.logged_in,
-  });
-} catch (err) {
-  res.status(500).json(err);
-  console.log(err);
-}
+router.get('/marketcap', withAuth, async (req, res) => {
+  try {
+    let result = await getByMarketCap();
+    //console.log(result);
+
+    res.render('market-cap', {
+      data: result,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
 });
 
 // route to get & render volume sorted data
-router.get('/volume', async (req, res) => {
+router.get('/volume', withAuth, async (req, res) => {
   try {
     let result = await getByVolume();
     //console.log(result);
-    
+
     res.render('volume', {
       data: result,
       logged_in: req.session.logged_in,
@@ -160,152 +59,91 @@ router.get('/volume', async (req, res) => {
     res.status(500).json(err);
     console.log(err);
   }
-  });
-
-
-
-  
-// get top 10 Exchanges
-async function getExchanges()  {
-  try {
-    response = await axios.get(`https://api.coingecko.com/api/v3/exchanges?per_page=10&page=1`);
-  } catch(err) {
-    response = null;
-    // error
-    console.log(err);
-  }
-  if (response) {
-    // success
-   
-    console.log("COINGECKO EXCHANGE RESPONSE");
-
-    const data = response.data;
-
-    console.log(data);
-    
-    // model bulk create & pass data to it
-    return data
-  }
-};
+});
 
 
 // route to get & render EXCHANGES 
-router.get('/exchanges', async (req, res) => {
-try {
-  let result = await getExchanges();
-  //console.log(result);
-  
-  res.render('exchanges', {
-    data: result,
-    logged_in: req.session.logged_in,
-  });
-} catch (err) {
-  res.status(500).json(err);
-  console.log(err);
-}
-});
-
-
-router.get('/', async (req, res) => {
-  try { 
-    let result = await getCryptocurrency()
-    console.log('test')
-    
-    res.render('homepage', { data: result.data,
-    logged_in: req.session.logged_in })
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// get single crypto without search bar
-router.get('/coin/:id', withAuth, async (req, res) => {
-
+router.get('/exchanges', withAuth, async (req, res) => {
   try {
-    console.log(req.params.id);
-    let result = await getOneCryptocurrency(req.params.id)
-    console.log(result.data[0]);
-    res.render('single-coin', { data: result.data[0],
-      logged_in: req.session.logged_in })
+    let result = await getExchanges();
+    //console.log(result);
+
+    res.render('exchanges', {
+      data: result,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
+    console.log(err);
   }
+});
 
-})
 
-// get single crypto using search bar
-router.get('/search/:name', async (req, res) => {
+// get single crypto data
+router.get('/search/:name', withAuth, async (req, res) => {
 
   try {
     console.log(req.params.name);
     const data = await Cryptolist.findOne({
       where: {
-        name: req.params.name,
+        slug: req.params.name,
       },
       raw: true,
     });
 
-    //const data = id.toJSON();
-    //const data = id.get({ plain: true });
     console.log("THIS IS THE NAME/ID");
     console.log(data);
 
     const name = data.slug;
     console.log(name);
-    
-  
+
+
     let result = await getCoinGecko(name)
-    console.log('THIS IS ROUTER.GET')
-    console.log(result.name);
-    console.log(result.symbol);
-    console.log(result.market_data.current_price.usd);
-    console.log(result.market_data.market_cap.usd);
-    console.log(result.market_data.market_cap_rank);
-    console.log(result.market_data.total_supply);
-    console.log(result.market_data.max_supply);
-    console.log(result.market_data.circulating_supply);
-    
-    res.render('search-single-coin', { 
-    name: result.name,
-    symbol: result.symbol,
-    current_price: result.market_data.current_price.usd,
-    market_cap: result.market_data.market_cap.usd,
-    rank: result.market_data.market_cap_rank,
-    total_supply: result.market_data.total_supply,
-    max_supply: result.market_data.max_supply,
-    current_supply: result.market_data.circulating_supply,
-    logged_in: req.session.logged_in });
+    // console.log('THIS IS ROUTER.GET')
+    // console.log(result.links);
+    // console.log(result.links.homepage[0]);
+    // console.log(result.links.subreddit_url);
+    // console.log(result.links.twitter_screen_name);
+    // console.log(result.genesis_date);
+    // console.log(result.market_data.ath_date.usd);
+    // console.log(result.market_data.atl_date.usd);
+
+    const athDate = result.market_data.ath_date.usd.slice(0, -14);
+    const atlDate = result.market_data.atl_date.usd.slice(0, -14);
+
+    res.render('search-single-coin', {
+      slug: result.id,
+      name: result.name,
+      symbol: result.symbol,
+      current_price: result.market_data.current_price.usd,
+      market_cap: result.market_data.market_cap.usd,
+      rank: result.market_data.market_cap_rank,
+      total_supply: result.market_data.total_supply,
+      max_supply: result.market_data.max_supply,
+      current_supply: result.market_data.circulating_supply,
+      description: result.description.en,
+      ath_price: result.market_data.ath.usd,
+      ath_date: athDate,
+      atl_price: result.market_data.atl.usd,
+      atl_date: atlDate,
+      genesis_date: result.genesis_date,
+      image: result.image.small,
+      website: result.links.homepage[0],
+      subreddit: result.links.subreddit_url,
+      twitter: result.links.twitter_screen_name,
+      logged_in: req.session.logged_in
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 
-})
+});
 
-
-// // Use withAuth middleware to prevent access to route
-// router.get('/profile', withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in user based on the session ID
-//     const userData = await User.findByPk(req.session.user_id, {
-//       attributes: { exclude: ['password'] },
-//       include: [{ model: Project }],
-//     });
-
-//     const user = userData.get({ plain: true });
-
-//     res.render('profile', {
-//       ...user,
-//       logged_in: true
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 router.get('/signup', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-  
+
   res.render('signup');
 });
 
