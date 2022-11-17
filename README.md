@@ -41,10 +41,7 @@
 
 Must have [Node.js](https://nodejs.org/en/) downloaded!
 
-Must have [mySQL](https://dev.mysql.com/downloads/mysql/) downloaded! 
-
-                    OR
-Use and seed database of choice.
+Must have [mySQL](https://dev.mysql.com/downloads/mysql/) downloaded! OR Use and seed database of choice.
 
 Must have [DBeaver](https://dbeaver.io/) downloaded! 
 
@@ -76,13 +73,13 @@ As a user:
 
   ## Contribution
 
-[Youssef Ojeil](https://github.com/youssefojeil) - Full Stack Developer
+[Youssef Ojeil Github](https://github.com/youssefojeil) - Full Stack Developer
 
-Jose Barreto
+[Jose Barreto Github](https://github.com/joseobm92) - Full Stack Developer
 
-Elizabeth Decarlo
+[Elizabeth Decarlo]()
     
-Alexander Brutus
+[Alexander Brutus]()
   
 
 
@@ -91,17 +88,18 @@ Alexander Brutus
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
  
+
+  ## Questions
+
+   Any additional questions or feed back, feel free to contact any of the team members: 
+   * [Jose Barreto](mailto:joseobm92@gmail.com).
+   * [Youssef Ojeil](mailto:youssef.ojeil@hotmail.com).
+   * [Elizabeth DeCarlo]().
+   * [Alexander Brutus]().
+    
+   <p align="right">(<a href="#readme-top">back to top</a>)</p>
+  
   ## License
   This project is licensed under the [The MIT License](https://opensource.org/licenses/MIT)
    <p align="right">(<a href="#readme-top">back to top</a>)</p>
       
-  ## Questions
-  * Checkout my [GitHub profile](https://github.com/joseobm92)
-  
-  * Any additional questions or feed back, feel free to [send an email](mailto:joseobm92@gmail.com). 
-   <p align="right">(<a href="#readme-top">back to top</a>)</p>
-  ## License
-  Copyright (c) [ joseobm92](https://github.com/joseobm92), . All rights reserved.
-   <p align="right">(<a href="#readme-top">back to top</a>)</p>
-  
-  Licensed under the The MIT License license.
