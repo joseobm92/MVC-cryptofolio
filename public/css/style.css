@@ -90,7 +90,26 @@ a:hover {
 }
 
 .ui-autocomplete, .ui-menu-item{
-  font-style:italic;
-  color:blue;
+
+  text-decoration: none;
   background-color: white;
+  list-style:none;
+  text-transform: capitalize;
+  padding-left:0;
+  padding-right: 0;
+  margin-right: 0;
+  width:200px;
+  z-index:1;
+}
+.ui-menu-item:hover{
+ background-color: #8BC6EC ;
+ opacity: 0.9;
+}
+
+.ui-autocomplete {
+  max-height: 100px;
+		overflow-y: auto;
+		/* prevent horizontal scrollbar */
+		overflow-x: hidden;
+    cursor:pointer;
 }
