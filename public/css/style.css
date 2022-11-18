@@ -88,3 +88,9 @@ a:hover {
   background-color: white;
   color: black;
 }
+
+.ui-autocomplete, .ui-menu-item{
+  font-style:italic;
+  color:blue;
+  background-color: white;
+}
