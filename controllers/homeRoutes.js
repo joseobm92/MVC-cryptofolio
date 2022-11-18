@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const {
-  Cryptolist
+  Cryptolist,
+  User
 } = require('../models');
 const withAuth = require('../utils/auth');
 const {
@@ -22,7 +23,28 @@ router.get('/', async (req, res) => {
 
     res.render('homepage', {
       data: result,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      name: req.session.user_name
+    })
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// profile route
+router.get('/profile', async (req, res) => {
+  try {
+
+    const user = await User.findOne({
+      where: {
+        username: req.session.user_name,
+      },
+      raw: true,
+    });
+
+    res.render('profile', {
+      logged_in: req.session.logged_in,
+      name: req.session.user_name
     })
   } catch (err) {
     res.status(500).json(err);
