@@ -5,14 +5,41 @@
   # MVC - Cryptofolio
   
  
-  * [Installation](#installation)
   * [Description](#description)
+  * [Technologies](#technologies) 
+  * [Installation](#installation)
   * [Usage](#usage)
+  * [Demo](#demo)
+  * [Images](#images)
   * [Contribution](#contribution)
-  * [Instructions](#instructions)
+  * [Questions](#questions)
   * [License](#license)
-      
-  ## Installation
+
+
+  ## Description
+
+  This application is a crypto portfolio created using [Node.js](https://nodejs.org/en/), [express.js](http://expressjs.com/), [mySQL](https://dev.mysql.com/downloads/mysql/), [sequelize](https://www.npmjs.com/package/sequelize), [express handlebars](https://www.npmjs.com/package/express-handlebars), [express session](https://www.npmjs.com/package/express-session), [dotenv](https://www.npmjs.com/package/dotenv), [bcrypt](https://www.npmjs.com/package/bcrypt), [handlebars helpers](https://www.npmjs.com/package/handlebars-helpers) & [CoinGecko API](https://www.coingecko.com/en/api), among other tools; to provide the user with an application that allows the user to signup, login and logout of their account & get more functionality once they log in such as creating their own crypto portfolio watchlist, search for a single coin, view more data on a single coin, view top 100 cryptocurrencies by market cap, view top 100 cryptocurrencies by volume traded & view the top 10 centralized exchanges with data for each. The application was completed using the MVC programming paradigm.
+
+   <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Technologies 
+
+![JS](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![JSON](https://img.shields.io/badge/json-5E5C5C?style=for-the-badge&logo=json&logoColor=white)
+![Nodejs](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Expressjs](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![NPM](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
+![mySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![Sequalize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white)
+![HandlebarsJS](https://img.shields.io/badge/Handlebars.js-f0772b?style=for-the-badge&logo=handlebarsdotjs&logoColor=black)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![FontAwesome](https://img.shields.io/badge/Font_Awesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white)      
+
+ <p align="right">(<a href="#readme-top">back to top</a>)</p>
+ 
+ ## Installation
 
     As a developer:
 
@@ -31,11 +58,7 @@
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
     
 
-  ## Description
 
-  This application is a crypto portfolio created using [Node.js](https://nodejs.org/en/), [express.js](http://expressjs.com/), [mySQL](https://dev.mysql.com/downloads/mysql/), [sequelize](https://www.npmjs.com/package/sequelize), [express handlebars](https://www.npmjs.com/package/express-handlebars), [express session](https://www.npmjs.com/package/express-session), [dotenv](https://www.npmjs.com/package/dotenv), [bcrypt](https://www.npmjs.com/package/bcrypt), [handlebars helpers](https://www.npmjs.com/package/handlebars-helpers) & [CoinGecko API](https://www.coingecko.com/en/api), among other tools; to provide the user with an application that allows the user to signup, login and logout of their account & get more functionality once they log in such as creating their own crypto portfolio watchlist, search for a single coin, view more data on a single coin, view top 100 cryptocurrencies by market cap, view top 100 cryptocurrencies by volume traded & view the top 10 centralized exchanges with data for each. The application was completed using the MVC programming paradigm.
-
-   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
   ## Usage
 
@@ -77,7 +100,7 @@ As a user:
 
 [Jose Barreto Github](https://github.com/joseobm92) - Full Stack Developer
 
-[Elizabeth Decarlo]()
+[Elizabeth Decarlo](https://github.com/bethdecarlo) - Full Stack Developer
     
 [Alexander Brutus]()
   
@@ -88,13 +111,34 @@ As a user:
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
  
+ 
+ ## Images 
+ 
+ * Home page 
+ 
+![screenshot](https://user-images.githubusercontent.com/110702442/203106186-087b01a8-c3ec-4393-87d8-7a56868662ea.png)
+
+ * Favorites page example
+ 
+![watchlist_ss](https://user-images.githubusercontent.com/110702442/203106374-1d564d5d-6e86-41ec-9d4e-5e1c5bba6792.jpg)
+
+
+ * Mobile
+ 
+ ![mobile_screenshot](https://user-images.githubusercontent.com/110702442/203106430-be89db91-afa8-4701-8b6a-6964cde3b821.png)
+
+
+ 
+ <p align="right">(<a href="#readme-top">back to top</a>)</p>
+ 
+ 
 
   ## Questions
 
    Any additional questions or feed back, feel free to contact any of the team members: 
    * [Jose Barreto](mailto:joseobm92@gmail.com).
    * [Youssef Ojeil](mailto:youssef.ojeil@hotmail.com).
-   * [Elizabeth DeCarlo]().
+   * [Elizabeth DeCarlo](mailto:bethdecarlo@gmail.com).
    * [Alexander Brutus]().
     
    <p align="right">(<a href="#readme-top">back to top</a>)</p>
