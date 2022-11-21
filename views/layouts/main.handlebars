@@ -9,138 +9,306 @@
     integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/b863e45fc5.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
   <link rel="stylesheet" href="/css/style.css">
-  
+
   <title>Cryptofolio</title>
 </head>
 
 <body>
+  {{!-- NAVBAR --}}
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top mb-4">
+    <div class="container">
+      <a href="/" class="navbar-brand"><img src="/css/Assets/cryptorocket.png" alt="logo" width="250" height="50"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto ml-3">
+          <li class="nav-item">
+            <a href="/" class="nav-link"> Home <i class="bi bi-house"></i> </a>
+          </li>
+          <li class="nav-item">
+            <a href="/watchlist" class="nav-link"> Favorites <i class="bi bi-star"></i> </a>
+          </li>
+          {{#if logged_in}}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+              Cryptocurrencies <i class="fa-brands fa-bitcoin"></i>
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/marketcap">By Market Cap</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/volume">By Volume</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/exchanges">Popular Exchanges</a>
+            </div>
+          </li>
 
+          <li class="nav-item">
+            <a href="/" class="nav-link" id="logout"> Logout <i class="bi bi-person-x"></i> </a>
+          </li>
+          {{else}}
+          <li class="nav-item">
+            <a href="/login" class="nav-link"> Login <i class="bi bi-person"></i> </a>
+          </li>
+          {{/if}}
+          <li class="nav-item">
 
-  <div class="container">
-    <nav class="nav justify-content-between mt-4 mb-5">
-      <div class="form-inline">
-        <a class="navbar-brand" href="/">
-          <img src="/css/Assets/cryptorocket.png" alt="logo" width="250" height="50">
-        </a>
-        <a class="nav-link active" href="/">Home <i class="fa-solid fa-house"></i> </a>
-        <a class="nav-link" href="/watchlist">Favorites <i class="fa-solid fa-star"></i> </a>
-        {{#if logged_in}}
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-            Cryptocurrencies <i class="fa-brands fa-bitcoin"></i>
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item bg-transparent" href="/marketcap">By Market Cap</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item bg-transparent" href="/volume">By Volume</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item bg-transparent" href="/exchanges">Popular Exchanges</a>
-          </div>
-        </li>
-        <a class="nav-link" href="/" id="logout">logout <i class="fa-solid fa-user-xmark"></i></a>
-        {{else}}
-        <a class="nav-link" href="/login">login <i class="fa-solid fa-circle-user"></i> </a>
-        {{/if}}
+            <div class="input-group">
+              <input type="text" class="form-control" id="crypto-input" placeholder="Bitcoin">
+              <button class="btn btn-dark" type="submit" id="search-btn">Search</button>
+            </div>
+
+          </li>
+        </ul>
       </div>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" id="crypto-input" type="search" placeholder="Bitcoin" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
-      </form>
-    </nav>
-    {{{ body }}}
+    </div>
+  </nav>
+
+  {{!-- SHOWCASE --}}
+  {{#if logged_in}}
+
+  {{else}}
+  <section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+    <div class="container">
+      <div class="d-sm-flex align-items-center justify-content-between">
+        <div>
+          <h1>Learn <span class="text-warning">Cryptocurrency</span> </h1>
+          <p class="lead my-4">Cryptofolio provides the user with a basic analysis of the crypto market. It is the perfect tool for a beginner trying to learn more about the crypto market. Cryptofolio makes use of CoinGecko and CoinMarketCap data to track price, volume, market capitalisation, top 10 crypto exchanges and allows the user to build their own personalized cryptocurrency watch list.</p>
+          <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#enroll">Create an
+            Account</button>
+        </div>
+        <img class="img-fluid w-50 d-none d-sm-block" src="/css/Assets/showcase.svg" alt="showcase">
+      </div>
+    </div>
+  </section>
+
+  {{!-- Newsletter --}}
+  <section class="bg-primary text-light p-5">
+    <div class="container">
+      <div class="d-md-flex justify-content-between align-items-center">
+        <h3 class="mb-3 mb-md-0">Sign up for Our Newsletter</h3>
+        <div class="input-group news-input">
+          <input type="text" class="form-control" placeholder="Enter Email" aria-label="Recipient's username"
+            aria-describedby="button-addon2">
+          <button class="btn btn-dark" type="button" id="button-addon2">Sign up</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{/if}}
+
+  {{{ body }}}
+
+  {{#if logged_in}}
+
+  {{else}}
+
+  {{!-- Accordion --}}
+  <section id="questions" class="p-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+      <div class="accordion accordion-flush" id="questions">
+        <!-- item 1 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#question-one">
+              Where exactly are you located
+            </button>
+          </h2>
+          <div id="question-one" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#questions">
+            <div class="accordion-body">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere adipisci quam praesentium
+              expedita, numquam ex nulla culpa aut labore assumenda. Qui corporis, facilis aut beatae
+              adipisci nobis laudantium atque magni.
+            </div>
+          </div>
+        </div>
+        <!-- item 2 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#question-two">
+              How much does it cost to attend
+            </button>
+          </h2>
+          <div id="question-two" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#questions">
+            <div class="accordion-body">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere adipisci quam praesentium
+              expedita, numquam ex nulla culpa aut labore assumenda. Qui corporis, facilis aut beatae
+              adipisci nobis laudantium atque magni.
+            </div>
+          </div>
+        </div>
+        <!-- item 3 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#question-three">
+              What do i need to know?
+            </button>
+          </h2>
+          <div id="question-three" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#questions">
+            <div class="accordion-body">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere adipisci quam praesentium
+              expedita, numquam ex nulla culpa aut labore assumenda. Qui corporis, facilis aut beatae
+              adipisci nobis laudantium atque magni.
+            </div>
+          </div>
+        </div>
+        <!-- item 4 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#question-four">
+              How do i sign up?
+            </button>
+          </h2>
+          <div id="question-four" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#questions">
+            <div class="accordion-body">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere adipisci quam praesentium
+              expedita, numquam ex nulla culpa aut labore assumenda. Qui corporis, facilis aut beatae
+              adipisci nobis laudantium atque magni.
+            </div>
+          </div>
+        </div>
+        <!-- item 5 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#question-five">
+              Do you help me find a job?
+            </button>
+          </h2>
+          <div id="question-five" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#questions">
+            <div class="accordion-body">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere adipisci quam praesentium
+              expedita, numquam ex nulla culpa aut labore assumenda. Qui corporis, facilis aut beatae
+              adipisci nobis laudantium atque magni.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{!-- OUR TEAM SECTION --}}
+  <section id="instructors" class="p-5 bg-primary">
+    <div class="container">
+      <h2 class="text-center text-white">Our team</h2>
+      <p class="lead text-center text-white mb-5">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum omnis nihil in nesciunt corporis labore.
+      </p>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card bg-light">
+            <div class="card-body text-center">
+              <img class="rounded-circle mb-3" src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
+              <h3 class="card-title mb-3">Jose Barreto</h3>
+              <p class="card-text">Full Stack Web Developer</p>
+              <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+              <a href="https://www.linkedin.com/in/jose-barreto-875087ab/"><i
+                  class="bi bi-linkedin text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card bg-light">
+            <div class="card-body text-center">
+              <img class="rounded-circle mb-3" src="https://randomuser.me/api/portraits/women/11.jpg" alt="">
+              <h3 class="card-title mb-3">Youeff Ojeil</h3>
+              <p class="card-text">Full Stack Web Developer</p>
+              <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card bg-light">
+            <div class="card-body text-center">
+              <img class="rounded-circle mb-3" src="https://randomuser.me/api/portraits/men/12.jpg" alt="">
+              <h3 class="card-title mb-3">Beth Decarlo</h3>
+              <p class="card-text">Full Stack Web Developer</p>
+              <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card bg-light">
+            <div class="card-body text-center">
+              <img class="rounded-circle mb-3" src="https://randomuser.me/api/portraits/women/12.jpg" alt="">
+              <h3 class="card-title mb-3">Alex Brutus</h3>
+              <p class="card-text">Full Stack Web Developer</p>
+              <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{/if}}
+
+
+  {{!-- NEW FOOTER --}}
+
+  <div class="footer p-5 bg-dark text-white text-center position-relative">
+    <div class="container">
+      <p class="lead">Copyright &copy; 2022 by The Serial Coders</p>
+      <a href="#" class="position-absolute bottom-0 end-0 p-5">
+        <i class="bi bi-arrow-up-circle h1"></i>
+      </a>
+    </div>
   </div>
 
+  {{!-- MODAL --}}
 
-
-  <!-- Footer -->
-  <footer class="text-center text-white">
-    <!-- Grid container -->
-    <div class="container p-4">
-      <!-- Section: Social media -->
-      <section class="mb-4">
-        <!-- Facebook -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
-
-        <!-- Twitter -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
-
-        <!-- Google -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
-
-        <!-- Instagram -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
-
-        <!-- Linkedin -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
-
-        <!-- Github -->
-        <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/joseobm92/MVC-cryptofolio"
-          role="button"><i class="fab fa-github"></i></a>
-      </section>
-      <!-- Section: Social media -->
-
-      {{!--
-      <!-- Section: Form -->
-      <section class="">
-        <form action="">
-          <!--Grid row-->
-          <div class="row d-flex justify-content-center">
-            <!--Grid column-->
-            <div class="col-auto">
-              <p class="pt-2">
-                <strong>Sign up for our newsletter</strong>
-              </p>
+  <div class="modal fade" id="enroll" tabindex="-1" aria-labelledby="enrollLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="enrollLabel">Create an Account</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="lead">Fill out the following form:</p>
+          <form class="signup-form">
+            <div class="mb-3">
+              <label for="username" class="col-form-label"> Username</label>
+              <input type="username" class="form-control" id="usernameInput">
             </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-md-5 col-12">
-              <!-- Email input -->
-              <div class="form-outline form-white mb-4">
-                <input type="email" id="form5Example21" class="form-control" />
-                <label class="form-label" for="form5Example21">Email address</label>
-              </div>
+            <div class="mb-3">
+              <label for="password" class="col-form-label"> Password</label>
+              <input type="password" class="form-control" id="passwordInput">
             </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-auto">
-              <!-- Submit button -->
-              <button type="submit" class="btn btn-outline-light mb-4">
-                Subscribe
-              </button>
-            </div>
-            <!--Grid column-->
-          </div>
-          <!--Grid row-->
-        </form>
-      </section>
-      <!-- Section: Form --> --}}
-
-      <!-- Section: Text -->
-      <section class="mb-4">
-        <p>
-          Cryptofolio provides the user with a basic analysis of the crypto market.
-          It is the perfect tool for a beginner trying to learn more about the crypto market.
-          Cryptofolio makes use of CoinGecko and CoinMarketCap data to track price, volume, market capitalisation,
-          top 10 crypto exchanges and allows the user to build their own personalized cryptocurrency watch list.
-        </p>
-      </section>
-      <!-- Section: Text -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary btn-create">Create Account</button>
+        </div>
+      </div>
     </div>
-    <!-- Grid container -->
-
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2022 Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/">The Serial Coders</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
-
-
-  <!-- Footer -->
+  </div>
 
 
 </body>
@@ -152,10 +320,15 @@
   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="/js/model-signup.js"></script>
+{{#if logged_in}}
 <script src="/js/logout.js"></script>
+{{/if}}
 <script src="/js/search.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="/js/searchBar.js"></script>
 
 </html>

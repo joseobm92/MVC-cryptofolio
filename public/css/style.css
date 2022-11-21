@@ -1,27 +1,33 @@
 
 
 * {
-  color: black;
+  /* color: black; */
   font-family: 'Montserrat', sans-serif;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   font-weight: 500;
 }
 
 body {
+
   min-height: 100vh;
-  background-color: #8BC6EC;
-  background-image: linear-gradient(156deg, #8BC6EC 0%, #77e19a 100%);
+}
+
+body::before {
+  display: block;
+  content: '';
+  height: 60px;
 }
 
 a { 
   color: inherit; 
   font-weight: 900;
+  text-decoration:none;
 }
 
-footer {
+/* footer {
     margin-top: auto;
     bottom: 0;
-}
+} */
 
 #search-btn {
   border-color: white;
@@ -58,13 +64,15 @@ footer {
 }
 
 .sign-up-text {
-  color: white;
+  color: black;
+  
 }
 
 .dropdown-menu {
-  background-color: #8BC6EC;
+
+  /* background-color: #8BC6EC;
   background-image: linear-gradient(156deg, #8BC6EC 0%, #85eea8 100%);
-  z-index: 1;
+  z-index: 1; */
 }
 
 a:hover {
@@ -92,14 +100,14 @@ a:hover {
 .ui-autocomplete, .ui-menu-item{
 
   text-decoration: none;
-  background-color: white;
+  /* background-color: white; */
   list-style:none;
   text-transform: capitalize;
   padding-left:0;
   padding-right: 0;
   margin-right: 0;
   width:200px;
-  z-index:1;
+  z-index:1000;
 }
 .ui-menu-item:hover{
  background-color: #8BC6EC ;
@@ -113,3 +121,29 @@ a:hover {
 		overflow-x: hidden;
     cursor:pointer;
 }
+
+/* .table th:first-child,
+.table td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: #ad6c80;
+  color: #373737;
+} */
+
+/* Ensure that the demo table scrolls */
+th, td { white-space: nowrap; }
+div.dataTables_wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
+
+
+
+
+@media(min-width:768px) {
+  .news-input{
+      width:50%;
+  }
+}
+
+

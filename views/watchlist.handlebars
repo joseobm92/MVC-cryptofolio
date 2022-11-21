@@ -1,33 +1,38 @@
-<h1> {{name}} Favorites</h1>
+<div class="container mt-5">
+    <div class="table-responsive">
+        <table class="table table-borderless w-120  mt-4 table-hover ">
+            <h1>Welcome back <span class="text-primary">{{name}} </span>, Favorites</h1>
+            <thead>
+                <tr>
+                    <th scope="col">Rank(#) </th>
+                    <th scope="col">Name </th>
+                    <th scope="col">Price($) </th>
+                    <th scope="col">Market Cap($) </th>
+                    <th scope="col">Circulating Supply </th>
+                    <th scope="col">Max Supply </th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            {{#each cryptocurrencies as |cryptocurrency| }}
+            <tbody>
+                <tr>
+                    <th scope="row">{{cryptocurrency.rank}}</th>
+                    <td><a href="/search/{{cryptocurrency.slug}}"> <img class="img-icon"
+                                src="{{cryptocurrency.img_url}}" alt="">{{cryptocurrency.name}}
+                            ({{cryptocurrency.symbol}})</a></td>
+                    <td>$ {{cryptocurrency.price}}</td>
+                    <td>$ {{cryptocurrency.market_cap}}</td>
+                    <td>{{cryptocurrency.circulating_supply}}</td>
+                    <td>{{cryptocurrency.max_supply}}</td>
+                    <td> <button class="{{cryptocurrency.symbol}} btn rounded delete-btn btn-dark">Delete</button></td>
+                </tr>
 
-<table class="table table-borderless w-120 custom-tbl mt-4 table-hover ">
-    <thead>
-        <tr>
-            <th scope="col">Rank(#) </th>
-            <th scope="col">Name </th>
-            <th scope="col">Price($) </th>
-            <th scope="col">Market Cap($) </th>
-            <th scope="col">Circulating Supply </th>
-            <th scope="col">Max Supply </th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    {{#each cryptocurrencies as |cryptocurrency| }}
-    <tbody>
-        <tr>
-            <th scope="row">{{cryptocurrency.rank}}</th>
-            <td><a href="/search/{{cryptocurrency.slug}}"> <img class="img-icon" src="{{cryptocurrency.img_url}}"
-                        alt="">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</a></td>
-            <td>$ {{cryptocurrency.price}}</td>
-            <td>$ {{cryptocurrency.market_cap}}</td>
-            <td>{{cryptocurrency.circulating_supply}}</td>
-            <td>{{cryptocurrency.max_supply}}</td>
-            <td> <button class="{{cryptocurrency.symbol}} btn rounded delete-btn custom-btn">Delete</button></td>
-        </tr>
+            </tbody>
+            {{/each}}
+        </table>
 
-    </tbody>
-    {{/each}}
-</table>
+    </div>
+</div>
 
 
 <script src="/js/delete.js"></script>
