@@ -122,13 +122,6 @@ a:hover {
     cursor:pointer;
 }
 
-/* .table th:first-child,
-.table td:first-child {
-  position: sticky;
-  left: 0;
-  background-color: #ad6c80;
-  color: #373737;
-} */
 
 /* Ensure that the demo table scrolls */
 th, td { white-space: nowrap; }
@@ -137,7 +130,33 @@ div.dataTables_wrapper {
     margin: 0 auto;
 }
 
+/* th:nth-child(-n + 2), td:nth-child(-n + 2)
+{
+  position:sticky;
+  left:0px;
+  background-color:white;
+} */
 
+th:nth-child(1), td:nth-child(1)
+{
+  position:sticky;
+  left:0px;
+  background-color:white;
+} 
+
+th:nth-child(2), td:nth-child(2)
+{
+  position:sticky;
+  left:70px;
+  background-color:white;
+}
+
+
+
+.ui-helper-hidden-accessible {
+   display:none;
+  
+  }
 
 
 @media(min-width:768px) {
