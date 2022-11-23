@@ -100,7 +100,7 @@ a:hover {
 .ui-autocomplete, .ui-menu-item{
 
   text-decoration: none;
-  /* background-color: white; */
+  background-color: white;
   list-style:none;
   text-transform: capitalize;
   padding-left:0;
@@ -112,6 +112,7 @@ a:hover {
 .ui-menu-item:hover{
  background-color: #8BC6EC ;
  opacity: 0.9;
+ cursor:pointer;
 }
 
 .ui-autocomplete {
