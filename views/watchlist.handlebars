@@ -1,8 +1,9 @@
 <div class="container mt-5">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
     <div class="table-responsive">
-        <table class="table table-borderless w-120  mt-4 table-hover ">
+        <table class="table table-borderless w-120  mt-4 table-hover " id="myTable">
             <h1>Welcome back <span class="text-primary">{{name}} </span>, Favorites</h1>
-            <thead>
+            <thead class="header">
                 <tr>
                     <th scope="col">Rank(#) </th>
                     <th scope="col">Name </th>
