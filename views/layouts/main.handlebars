@@ -69,6 +69,8 @@
     </div>
   </nav>
 
+  <h2 class="container"></h2>
+
   {{!-- SHOWCASE --}}
   {{#if logged_in}}
 
@@ -78,11 +80,12 @@
       <div class="d-sm-flex align-items-center justify-content-between">
         <div>
           <h1>Learn <span class="text-warning">Cryptocurrency</span> </h1>
-          <p class="lead my-4">Cryptofolio provides the user with a basic analysis of the crypto market. It is the
-            perfect tool for a beginner trying to learn more about the crypto market. Cryptofolio makes use of CoinGecko
-            and CoinMarketCap data to track price, volume, market capitalisation, top 10 crypto exchanges and allows the
-            user to build their own personalized cryptocurrency watch list.</p>
-          <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#enroll">Create an
+          <p class="lead my-4">Cryptofolio provides you with a basic analysis of the crypto market. We are the
+            perfect tool for a beginner trying to learn more about the crypto market. Cryptofolio is powered by
+            CoinGecko and CoinMarketCap data to provide the most recent information about your favorite cryptocurrencies. Create a
+            watchlist to easily track your favorite coins.
+          </p>
+          <button class="btn btn-primary btn-lg mb-3" data-bs-toggle="modal" data-bs-target="#enroll">Create an
             Account</button>
         </div>
         <img class="img-fluid w-50 d-none d-sm-block" src="/css/Assets/showcase.svg" alt="showcase">
@@ -223,7 +226,7 @@
     <div class="container">
       <h2 class="text-center text-white">Our team</h2>
       <p class="lead text-center text-white mb-5">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum omnis nihil in nesciunt corporis labore.
+       This is the team of full stack web developers that contributed to the creation of this application.
       </p>
       <div class="row g-4">
         <div class="col-md-6 col-lg-3">
@@ -233,8 +236,6 @@
               <h3 class="card-title mb-3">Jose Barreto</h3>
               <p class="card-text">Full Stack Web Developer</p>
               <a href="https://twitter.com/AxieBarre" target="_blank"><i class="bi bi-twitter text-dark mx-1"></i></a>
-              <a href="https://www.facebook.com/octaviobarreto/" target="_blank"><i
-                  class="bi bi-facebook text-dark mx-1"></i></a>
               <a href="https://www.linkedin.com/in/jose-barreto-875087ab/" target="_blank"><i
                   class="bi bi-linkedin text-dark mx-1"></i></a>
               <a href="https://www.instagram.com/joseobm/?igshid=MWI4MTIyMDE%3D" target="_blank"><i
@@ -245,7 +246,7 @@
         <div class="col-md-6 col-lg-3">
           <div class="card bg-light">
             <div class="card-body text-center">
-              <img class="rounded-circle mb-3" src="https://randomuser.me/api/portraits/women/11.jpg" alt="">
+              <img class="rounded-circle mb-3" src="https://randomuser.me/api/portraits/men/18.jpg" alt="">
               <h3 class="card-title mb-3">Youssef Ojeil</h3>
               <p class="card-text">Full Stack Web Developer</p>
               <a href="https://twitter.com/Gallops_" target="_blank"><i class="bi bi-twitter text-dark mx-1"></i></a>
@@ -258,7 +259,7 @@
         <div class="col-md-6 col-lg-3">
           <div class="card bg-light">
             <div class="card-body text-center">
-              <img class="rounded-circle mb-3" src="https://randomuser.me/api/portraits/men/12.jpg" alt="">
+              <img class="rounded-circle mb-3" src="https://randomuser.me/api/portraits/women/15.jpg" alt="">
               <h3 class="card-title mb-3">Beth Decarlo</h3>
               <p class="card-text">Full Stack Web Developer</p>
               <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
@@ -271,7 +272,7 @@
         <div class="col-md-6 col-lg-3">
           <div class="card bg-light">
             <div class="card-body text-center">
-              <img class="rounded-circle mb-3" src="https://randomuser.me/api/portraits/women/12.jpg" alt="">
+              <img class="rounded-circle mb-3" src="https://randomuser.me/api/portraits/men/10.jpg" alt="">
               <h3 class="card-title mb-3">Alex Brutus</h3>
               <p class="card-text">Full Stack Web Developer</p>
               <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
@@ -348,5 +349,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="/js/searchBar.js"></script>
+<script src="/js/table-search.js"></script>
 
 </html>
